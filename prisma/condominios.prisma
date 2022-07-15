@@ -1,0 +1,586 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model aplicacion {
+  id                  Int                   @id @default(autoincrement())
+  nombre              String                @db.VarChar(30)
+  descripcion         String                @db.VarChar(60)
+  aplicacion_proyecto aplicacion_proyecto[]
+  modulo              modulo[]
+}
+
+model aplicacion_proyecto {
+  id           Int        @id @default(autoincrement())
+  nombre       String     @db.VarChar(30)
+  descripcion  String     @db.VarChar(80)
+  cuentaId     Int
+  empresaId    Int
+  aplicacionId Int
+  indice       Int
+  aplicacion   aplicacion @relation(fields: [aplicacionId], references: [id], onDelete: NoAction, map: "aplicacion_proyecto_ibfk_387")
+  cuenta       cuenta     @relation(fields: [cuentaId], references: [id], onDelete: NoAction, map: "aplicacion_proyecto_ibfk_385")
+  empresa      empresa    @relation(fields: [empresaId], references: [id], onDelete: NoAction, map: "aplicacion_proyecto_ibfk_386")
+
+  @@index([aplicacionId], map: "aplicacionId")
+  @@index([cuentaId], map: "cuentaId")
+  @@index([empresaId], map: "empresaId")
+}
+
+model archivo {
+  id                  Int                   @id @default(autoincrement())
+  archivo             String                @db.VarChar(80)
+  nombre              String                @db.VarChar(80)
+  tamano              Int
+  extension           String                @db.VarChar(15)
+  capturaFecha        DateTime              @default(now()) @db.Timestamp(0)
+  publicacion_archivo publicacion_archivo[]
+}
+
+model canal_notificacion {
+  id                         Int                          @id @default(autoincrement())
+  nombre                     String                       @db.VarChar(100)
+  descripcion                String?                      @db.VarChar(100)
+  estatus                    Int                          @default(1) @db.TinyInt
+  canal_notificacion_nivel   canal_notificacion_nivel[]
+  notificacion               notificacion[]
+  usuario_canal_notificacion usuario_canal_notificacion[]
+}
+
+model canal_notificacion_nivel {
+  id                  Int                @id @default(autoincrement())
+  nivelId             Int
+  canalNotificacionId Int
+  canal_notificacion  canal_notificacion @relation(fields: [canalNotificacionId], references: [id], onDelete: NoAction, map: "canal_notificacion_nivel_ibfk_102")
+  nivel               nivel              @relation(fields: [nivelId], references: [id], onDelete: NoAction, map: "canal_notificacion_nivel_ibfk_101")
+
+  @@index([canalNotificacionId], map: "canalNotificacionId")
+  @@index([nivelId], map: "nivelId")
+}
+
+model cargo {
+  id                    Int                   @id @default(autoincrement())
+  cuentaId              Int
+  empresaId             Int
+  residenteId           Int
+  tipoCargoId           Int
+  concepto              String                @db.VarChar(255)
+  fecha                 DateTime              @default(now()) @db.Timestamp(0)
+  fechaExpiracion       DateTime              @default(now()) @db.Timestamp(0)
+  estatusId             Int
+  total                 Float
+  abono                 Float?
+  capturaUsuario        Int?
+  capturaFecha          DateTime              @default(now()) @db.Timestamp(0)
+  eliminado             Boolean?
+  catalogo_estado_cargo catalogo_estado_cargo @relation(fields: [estatusId], references: [id], onDelete: NoAction, map: "cargo_ibfk_9")
+  residente             residente             @relation(fields: [residenteId], references: [id], onDelete: NoAction, map: "cargo_ibfk_7")
+  catalogo_tipo_cargo   catalogo_tipo_cargo   @relation(fields: [tipoCargoId], references: [id], onDelete: NoAction, map: "cargo_ibfk_8")
+  cargo_abono           cargo_abono[]
+  cargo_concepto        cargo_concepto[]
+  cargo_reservacion     cargo_reservacion[]
+  movimiento_cargo      movimiento_cargo[]
+
+  @@index([estatusId], map: "estatusId")
+  @@index([residenteId], map: "residenteId")
+  @@index([tipoCargoId], map: "tipoCargoId")
+}
+
+model cargo_abono {
+  id          Int       @id @default(autoincrement())
+  cargoId     Int
+  residenteId Int
+  fecha       DateTime  @default(now()) @db.Timestamp(0)
+  cantidad    Float
+  cargo       cargo     @relation(fields: [cargoId], references: [id], onDelete: NoAction, map: "cargo_abono_ibfk_5")
+  residente   residente @relation(fields: [residenteId], references: [id], onDelete: NoAction, map: "cargo_abono_ibfk_6")
+
+  @@index([cargoId], map: "cargoId")
+  @@index([residenteId], map: "residenteId")
+}
+
+model cargo_concepto {
+  id        Int      @id @default(autoincrement())
+  cargoId   Int
+  finanzaId Int
+  cargo     cargo    @relation(fields: [cargoId], references: [id], onDelete: NoAction, map: "cargo_concepto_ibfk_161")
+  finanzas  finanzas @relation(fields: [finanzaId], references: [id], onDelete: NoAction, map: "cargo_concepto_ibfk_162")
+
+  @@index([cargoId], map: "cargoId")
+  @@index([finanzaId], map: "finanzaId")
+}
+
+model cargo_reservacion {
+  id                         Int                        @id @default(autoincrement())
+  cargoId                    Int?
+  reservacionId              Int
+  cargo                      cargo?                     @relation(fields: [cargoId], references: [id], map: "cargo_reservacion_ibfk_161")
+  lote_residente_reservacion lote_residente_reservacion @relation(fields: [reservacionId], references: [id], onDelete: NoAction, map: "cargo_reservacion_ibfk_162")
+
+  @@index([cargoId], map: "cargoId")
+  @@index([reservacionId], map: "reservacionId")
+}
+
+model catalogo_estado_cargo {
+  id          Int     @id @default(autoincrement())
+  descripcion String? @db.VarChar(35)
+  cargo       cargo[]
+}
+
+model catalogo_naturaleza {
+  id          Int        @id @default(autoincrement())
+  descripcion String     @db.VarChar(255)
+  finanzas    finanzas[]
+}
+
+model catalogo_pais {
+  id             Int              @id @default(autoincrement())
+  descripcion    String           @db.VarChar(30)
+  lote_direccion lote_direccion[]
+}
+
+model catalogo_tipo_cargo {
+  id          Int     @id @default(autoincrement())
+  descripcion String? @db.VarChar(35)
+  cargo       cargo[]
+}
+
+model catalogo_tipo_lote {
+  id          Int    @id @default(autoincrement())
+  descripcion String @db.VarChar(40)
+}
+
+model catalogo_tipo_publicacion {
+  id          Int           @id @default(autoincrement())
+  descripcion String        @db.VarChar(255)
+  publicacion publicacion[]
+}
+
+model cuenta {
+  id                    Int                     @id @default(autoincrement())
+  descripcion           String?                 @db.VarChar(255)
+  aplicacion_proyecto   aplicacion_proyecto[]
+  empresa               empresa[]
+  lote                  lote[]
+  usuario_cuenta_modulo usuario_cuenta_modulo[]
+}
+
+model empresa {
+  id                  Int                   @id @default(autoincrement())
+  cuentaId            Int
+  nombre              String                @db.VarChar(40)
+  nombreCorto         String?               @db.VarChar(15)
+  razonSocial         String                @db.VarChar(100)
+  rfc                 String                @db.VarChar(13)
+  cuenta              cuenta                @relation(fields: [cuentaId], references: [id], onDelete: NoAction, map: "empresa_ibfk_1")
+  aplicacion_proyecto aplicacion_proyecto[]
+  residente           residente[]
+
+  @@index([cuentaId], map: "cuentaId")
+}
+
+model encuesta {
+  id                               Int                                @id @default(autoincrement())
+  fechaInicial                     DateTime                           @default(now()) @db.Timestamp(0)
+  fechaExpiracion                  DateTime                           @default(now()) @db.Timestamp(0)
+  motivo                           String?                            @db.VarChar(255)
+  capturaUsuario                   Int
+  activo                           Boolean
+  eliminado                        Boolean
+  cuentaId                         Int
+  empresaId                        Int
+  usuario                          usuario                            @relation(fields: [capturaUsuario], references: [id], onDelete: NoAction, map: "encuesta_ibfk_1")
+  encuesta_pregunta                encuesta_pregunta[]
+  encuesta_pregunta_respuesta      encuesta_pregunta_respuesta[]
+  encuesta_pregunta_respuesta_voto encuesta_pregunta_respuesta_voto[]
+
+  @@index([capturaUsuario], map: "capturaUsuario")
+}
+
+model encuesta_pregunta {
+  id                               Int                                @id @default(autoincrement())
+  encuestaId                       Int
+  descripcion                      String                             @db.VarChar(255)
+  activo                           Boolean
+  encuesta                         encuesta                           @relation(fields: [encuestaId], references: [id], onDelete: NoAction, map: "encuesta_pregunta_ibfk_1")
+  encuesta_pregunta_respuesta      encuesta_pregunta_respuesta[]
+  encuesta_pregunta_respuesta_voto encuesta_pregunta_respuesta_voto[]
+
+  @@index([encuestaId], map: "encuestaId")
+}
+
+model encuesta_pregunta_respuesta {
+  id                               Int                                @id @default(autoincrement())
+  cuestionId                       Int
+  encuestaId                       Int
+  descripcion                      String                             @db.VarChar(255)
+  encuesta_pregunta                encuesta_pregunta                  @relation(fields: [cuestionId], references: [id], onDelete: Cascade, map: "encuesta_pregunta_respuesta_ibfk_5")
+  encuesta                         encuesta                           @relation(fields: [encuestaId], references: [id], onDelete: NoAction, map: "encuesta_pregunta_respuesta_ibfk_6")
+  encuesta_pregunta_respuesta_voto encuesta_pregunta_respuesta_voto[]
+
+  @@index([cuestionId], map: "cuestionId")
+  @@index([encuestaId], map: "encuestaId")
+}
+
+model encuesta_pregunta_respuesta_voto {
+  id                          Int                         @id @default(autoincrement())
+  residenteId                 Int
+  encuestaId                  Int
+  respuestaId                 Int
+  cuestionId                  Int
+  encuesta_pregunta           encuesta_pregunta           @relation(fields: [cuestionId], references: [id], onDelete: Cascade, map: "encuesta_pregunta_respuesta_voto_ibfk_12")
+  encuesta                    encuesta                    @relation(fields: [encuestaId], references: [id], onDelete: NoAction, map: "encuesta_pregunta_respuesta_voto_ibfk_10")
+  residente                   residente                   @relation(fields: [residenteId], references: [id], onDelete: NoAction, map: "encuesta_pregunta_respuesta_voto_ibfk_9")
+  encuesta_pregunta_respuesta encuesta_pregunta_respuesta @relation(fields: [respuestaId], references: [id], onDelete: NoAction, map: "encuesta_pregunta_respuesta_voto_ibfk_11")
+
+  @@index([cuestionId], map: "cuestionId")
+  @@index([encuestaId], map: "encuestaId")
+  @@index([residenteId], map: "residenteId")
+  @@index([respuestaId], map: "respuestaId")
+}
+
+model espacio_publico {
+  id                   Int                    @id @default(autoincrement())
+  descripcion          String                 @db.VarChar(30)
+  lote_espacio_publico lote_espacio_publico[]
+}
+
+model finanzas {
+  id                  Int                 @id @default(autoincrement())
+  concepto            String              @db.VarChar(255)
+  fecha               DateTime            @default(now()) @db.Timestamp(0)
+  total               Int
+  capturaUsuario      Int
+  naturalesaId        Int
+  cuentaId            Int
+  empresaId           Int
+  catalogo_naturaleza catalogo_naturaleza @relation(fields: [naturalesaId], references: [id], onDelete: NoAction, map: "finanzas_ibfk_1")
+  cargo_concepto      cargo_concepto[]
+  movimiento_cargo    movimiento_cargo[]
+
+  @@index([naturalesaId], map: "naturalesaId")
+}
+
+model lote {
+  id                         Int                          @id @default(autoincrement())
+  cuentaId                   Int
+  empresaId                  Int
+  descripcion                String?                      @db.VarChar(255)
+  codigo                     String                       @db.Char(10)
+  direccionId                Int?
+  indice                     Int?
+  eliminado                  Boolean?
+  tipoLoteId                 Int?
+  cuenta                     cuenta                       @relation(fields: [cuentaId], references: [id], onDelete: NoAction, map: "lote_ibfk_211")
+  lote_direccion             lote_direccion?              @relation(fields: [direccionId], references: [id], onDelete: NoAction, map: "lote_ibfk_212")
+  lote_configuracion_pago    lote_configuracion_pago[]
+  lote_espacio_publico       lote_espacio_publico[]
+  lote_residente             lote_residente[]
+  lote_residente_reservacion lote_residente_reservacion[]
+
+  @@index([cuentaId], map: "cuentaId")
+  @@index([direccionId], map: "direccionId")
+}
+
+model lote_configuracion_pago {
+  id             Int   @id @default(autoincrement())
+  loteId         Int?
+  importePorDia  Int?
+  importePorHora Int?
+  lote           lote? @relation(fields: [loteId], references: [id], onDelete: Cascade, map: "lote_configuracion_pago_ibfk_1")
+
+  @@index([loteId], map: "loteId")
+}
+
+model lote_direccion {
+  id             Int            @id @default(autoincrement())
+  paisId         Int?
+  colonia        String?        @db.VarChar(50)
+  calle          String?        @db.VarChar(30)
+  numeroExterior String?        @db.VarChar(255)
+  numeroInterior String?        @db.VarChar(255)
+  piso           String?        @db.VarChar(255)
+  cp             String?        @db.Char(7)
+  catalogo_pais  catalogo_pais? @relation(fields: [paisId], references: [id], onDelete: NoAction, map: "lote_direccion_ibfk_1")
+  lote           lote[]
+
+  @@index([paisId], map: "paisId")
+}
+
+model lote_espacio_publico {
+  id               Int             @id @default(autoincrement())
+  loteId           Int
+  espacioPublicoId Int
+  espacio_publico  espacio_publico @relation(fields: [espacioPublicoId], references: [id], onDelete: NoAction, map: "lote_espacio_publico_ibfk_6")
+  lote             lote            @relation(fields: [loteId], references: [id], onDelete: NoAction, map: "lote_espacio_publico_ibfk_5")
+
+  @@index([espacioPublicoId], map: "espacioPublicoId")
+  @@index([loteId], map: "loteId")
+}
+
+model lote_residente {
+  id          Int        @id @default(autoincrement())
+  residenteId Int?
+  loteId      Int?
+  activo      Boolean
+  lote        lote?      @relation(fields: [loteId], references: [id], onDelete: Cascade, map: "lote_residente_ibfk_104")
+  residente   residente? @relation(fields: [residenteId], references: [id], onDelete: NoAction, map: "lote_residente_ibfk_103")
+
+  @@index([loteId], map: "loteId")
+  @@index([residenteId], map: "residenteId")
+}
+
+model lote_residente_reservacion {
+  id                Int                 @id @default(autoincrement())
+  residenteId       Int
+  loteId            Int
+  fechaInicial      DateTime            @default(now()) @db.Timestamp(0)
+  fechaFinal        DateTime            @default(now()) @db.Timestamp(0)
+  estatus           Int
+  eliminado         Boolean
+  cuentaId          Int
+  empresaId         Int
+  lote              lote                @relation(fields: [loteId], references: [id], onDelete: Cascade, map: "lote_residente_reservacion_ibfk_120")
+  residente         residente           @relation(fields: [residenteId], references: [id], onDelete: NoAction, map: "lote_residente_reservacion_ibfk_119")
+  cargo_reservacion cargo_reservacion[]
+
+  @@index([loteId], map: "loteId")
+  @@index([residenteId], map: "residenteId")
+}
+
+model modulo {
+  id                    Int                     @id @default(autoincrement())
+  aplicacionId          Int
+  titulo                String                  @db.VarChar(255)
+  nombre                String                  @db.VarChar(255)
+  aplicacion            aplicacion              @relation(fields: [aplicacionId], references: [id], onDelete: NoAction, map: "modulo_ibfk_1")
+  usuario_cuenta_modulo usuario_cuenta_modulo[]
+
+  @@index([aplicacionId], map: "aplicacionId")
+}
+
+model movimiento_cargo {
+  id         Int      @id @default(autoincrement())
+  finanzasId Int
+  cargosId   Int
+  cargo      cargo    @relation(fields: [cargosId], references: [id], onDelete: NoAction, map: "movimiento_cargo_ibfk_6")
+  finanzas   finanzas @relation(fields: [finanzasId], references: [id], onDelete: NoAction, map: "movimiento_cargo_ibfk_5")
+
+  @@index([cargosId], map: "cargosId")
+  @@index([finanzasId], map: "finanzasId")
+}
+
+model movimiento_exportar {
+  id              Int      @id @default(autoincrement())
+  uuid            String   @db.VarChar(255)
+  fechaInicial    DateTime @db.DateTime(0)
+  fechaFinal      DateTime @db.DateTime(0)
+  naturalesa      String?  @db.VarChar(255)
+  fechaExpiracion DateTime @db.DateTime(0)
+}
+
+model nivel {
+  id                       Int                        @id @default(autoincrement())
+  descripcion              String?                    @db.VarChar(60)
+  modulos                  String?                    @db.Text
+  canal_notificacion_nivel canal_notificacion_nivel[]
+  usuario_nivel            usuario_nivel[]
+}
+
+model notificacion {
+  id                   Int                    @id @default(autoincrement())
+  canalId              Int
+  titulo               String                 @db.VarChar(100)
+  cuerpo               String                 @db.VarChar(100)
+  imagen               String?                @db.VarChar(100)
+  url                  String?                @db.VarChar(100)
+  fechaRegistro        DateTime               @default(now()) @db.Timestamp(0)
+  estatus              Int                    @default(1) @db.TinyInt
+  canal_notificacion   canal_notificacion     @relation(fields: [canalId], references: [id], onDelete: NoAction, map: "notificacion_ibfk_1")
+  notificacion_usuario notificacion_usuario[]
+
+  @@index([canalId], map: "canalId")
+}
+
+model notificacion_usuario {
+  id             Int          @id @default(autoincrement())
+  usuarioId      Int
+  notificacionId Int
+  capturaFecha   DateTime     @default(now()) @db.Timestamp(0)
+  estatus        Int          @default(1) @db.TinyInt
+  notificacion   notificacion @relation(fields: [notificacionId], references: [id], onDelete: Cascade, map: "notificacion_usuario_ibfk_182")
+  usuario        usuario      @relation(fields: [usuarioId], references: [id], onDelete: NoAction, map: "notificacion_usuario_ibfk_181")
+
+  @@index([notificacionId], map: "notificacionId")
+  @@index([usuarioId], map: "usuarioId")
+}
+
+model publicacion {
+  id                        Int                       @id @default(autoincrement())
+  titulo                    String?                   @db.VarChar(255)
+  imagen                    String?                   @db.VarChar(255)
+  archivo                   String?                   @db.VarChar(255)
+  descripcion               String?                   @db.VarChar(255)
+  residenteId               Int
+  tipoPublicacionId         Int
+  estatus                   Int
+  fecha                     DateTime                  @default(now()) @db.Timestamp(0)
+  rutaMovimiento            String?                   @db.VarChar(255)
+  cuentaId                  Int
+  empresaId                 Int
+  residente                 residente                 @relation(fields: [residenteId], references: [id], onDelete: NoAction, map: "publicacion_ibfk_197")
+  catalogo_tipo_publicacion catalogo_tipo_publicacion @relation(fields: [tipoPublicacionId], references: [id], onDelete: NoAction, map: "publicacion_ibfk_198")
+  publicacion_archivo       publicacion_archivo[]
+
+  @@index([residenteId], map: "residenteId")
+  @@index([tipoPublicacionId], map: "tipoPublicacionId")
+}
+
+model publicacion_archivo {
+  id            Int         @id @default(autoincrement())
+  tipoId        Int
+  publicacionId Int
+  archivoId     Int
+  archivo       archivo     @relation(fields: [archivoId], references: [id], onDelete: NoAction, map: "publicacion_archivo_ibfk_6")
+  publicacion   publicacion @relation(fields: [publicacionId], references: [id], onDelete: Cascade, map: "publicacion_archivo_ibfk_5")
+
+  @@index([archivoId], map: "archivoId")
+  @@index([publicacionId], map: "publicacionId")
+}
+
+model residente {
+  id                               Int                                @id @default(autoincrement())
+  nombre                           String                             @db.VarChar(30)
+  apellidos                        String                             @db.VarChar(60)
+  usuarioId                        Int?
+  administrador                    Boolean
+  eliminado                        Int                                @db.TinyInt
+  cuentaId                         Int
+  empresaId                        Int
+  empresa                          empresa                            @relation(fields: [empresaId], references: [id], onDelete: NoAction, map: "residente_ibfk_55")
+  usuario                          usuario?                           @relation(fields: [usuarioId], references: [id], onDelete: NoAction, map: "residente_ibfk_54")
+  cargo                            cargo[]
+  cargo_abono                      cargo_abono[]
+  encuesta_pregunta_respuesta_voto encuesta_pregunta_respuesta_voto[]
+  lote_residente                   lote_residente[]
+  lote_residente_reservacion       lote_residente_reservacion[]
+  publicacion                      publicacion[]
+
+  @@index([empresaId], map: "empresaId")
+  @@index([usuarioId], map: "usuarioId")
+}
+
+model ultima_sesion {
+  id        Int    @id @default(autoincrement())
+  nombre    String @db.VarChar(255)
+  empresaId Int
+  cuentaId  Int
+  usuarioId Int
+}
+
+model usuario {
+  id                         Int                          @id @default(autoincrement())
+  master                     Boolean
+  cuentaId                   Int
+  username                   String                       @db.VarChar(25)
+  correo                     String                       @db.VarChar(50)
+  numeroCelular              String                       @db.VarChar(10)
+  nombre                     String                       @db.VarChar(30)
+  apellidos                  String                       @db.VarChar(60)
+  duracion                   Int
+  salt                       String?                      @db.Char(32)
+  hash                       String?                      @db.Char(128)
+  activo                     Boolean
+  terminoCondiciones         Boolean
+  capturaUsuario             Int
+  capturaFecha               DateTime                     @default(now()) @db.Timestamp(0)
+  eliminado                  Boolean
+  encuesta                   encuesta[]
+  notificacion_usuario       notificacion_usuario[]
+  residente                  residente[]
+  usuario_canal_notificacion usuario_canal_notificacion[]
+  usuario_cuenta_modulo      usuario_cuenta_modulo[]
+  usuario_invitacion         usuario_invitacion[]
+  usuario_nivel              usuario_nivel[]
+  usuario_notificacion       usuario_notificacion[]
+  usuario_reestablecer       usuario_reestablecer[]
+}
+
+model usuario_canal_notificacion {
+  id                  Int                @id @default(autoincrement())
+  usuarioId           Int
+  canalNotificacionId Int
+  estatus             Int                @default(1) @db.TinyInt
+  canal_notificacion  canal_notificacion @relation(fields: [canalNotificacionId], references: [id], onDelete: NoAction, map: "usuario_canal_notificacion_ibfk_182")
+  usuario             usuario            @relation(fields: [usuarioId], references: [id], onDelete: NoAction, map: "usuario_canal_notificacion_ibfk_181")
+
+  @@index([canalNotificacionId], map: "canalNotificacionId")
+  @@index([usuarioId], map: "usuarioId")
+}
+
+model usuario_cuenta_modulo {
+  id        Int     @id @default(autoincrement())
+  usuarioId Int
+  moduloId  Int
+  cuentaId  Int
+  editable  Boolean @default(false)
+  cuenta    cuenta  @relation(fields: [cuentaId], references: [id], onDelete: NoAction, map: "usuario_cuenta_modulo_ibfk_255")
+  modulo    modulo  @relation(fields: [moduloId], references: [id], onDelete: Cascade, map: "usuario_cuenta_modulo_ibfk_254")
+  usuario   usuario @relation(fields: [usuarioId], references: [id], onDelete: NoAction, map: "usuario_cuenta_modulo_ibfk_253")
+
+  @@index([cuentaId], map: "cuentaId")
+  @@index([moduloId], map: "moduloId")
+  @@index([usuarioId], map: "usuarioId")
+}
+
+model usuario_invitacion {
+  id           Int      @id @default(autoincrement())
+  usuarioId    Int
+  token        String   @db.VarChar(36)
+  correo       String   @db.VarChar(255)
+  activo       Boolean  @default(true)
+  capturaFecha DateTime @default(now()) @db.Timestamp(0)
+  usuario      usuario  @relation(fields: [usuarioId], references: [id], onDelete: NoAction, map: "usuario_invitacion_ibfk_1")
+
+  @@index([usuarioId], map: "usuarioId")
+}
+
+model usuario_nivel {
+  id        Int     @id @default(autoincrement())
+  usuarioId Int
+  nivelId   Int
+  nivel     nivel   @relation(fields: [nivelId], references: [id], onDelete: NoAction, map: "usuario_nivel_ibfk_170")
+  usuario   usuario @relation(fields: [usuarioId], references: [id], onDelete: NoAction, map: "usuario_nivel_ibfk_169")
+
+  @@index([nivelId], map: "nivelId")
+  @@index([usuarioId], map: "usuarioId")
+}
+
+model usuario_notificacion {
+  id        Int     @id @default(autoincrement())
+  usuarioId Int
+  endpoint  String  @db.VarChar(255)
+  p256dh    String  @db.VarChar(100)
+  auth      String? @db.VarChar(100)
+  eliminado Int     @default(0) @db.TinyInt
+  usuario   usuario @relation(fields: [usuarioId], references: [id], onDelete: NoAction, map: "usuario_notificacion_ibfk_1")
+
+  @@index([usuarioId], map: "usuarioId")
+}
+
+model usuario_reestablecer {
+  id           Int      @id @default(autoincrement())
+  usuarioId    Int
+  token        String   @db.VarChar(36)
+  correo       String   @db.VarChar(255)
+  activo       Boolean? @default(true)
+  capturaFecha DateTime @default(now()) @db.Timestamp(0)
+  usuario      usuario  @relation(fields: [usuarioId], references: [id], onDelete: NoAction, map: "usuario_reestablecer_ibfk_1")
+
+  @@index([usuarioId], map: "usuarioId")
+}

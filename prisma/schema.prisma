@@ -1,0 +1,69 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum CredentialTypeEnum {
+  PASSWORD
+}
+
+model Credential {
+  userId         Int
+  user           User               @relation(fields: [userId], references: [id])
+  credentialType CredentialTypeEnum
+  username       String
+  payload        Json
+
+  @@id(name: "typeAndUsername", [credentialType, username])
+}
+
+model User {
+  id            Int          @id @default(autoincrement())
+  active        Boolean
+  profile       Profile      @relation(fields: [profileId], references: [id])
+  profileId     Int          @unique
+  credentials   Credential[]
+  workspaces    Workspace[]
+  ownWorkspaces Workspace[]  @relation("owner")
+  // Metadata
+  capturedDate  DateTime     @default(now()) @db.Timestamp(0)
+  capturedBy    User         @relation("capturedBy", fields: [capturedById], references: [id])
+  capturedById  Int
+  modifiedDate  DateTime?
+  modifiedBy    User?        @relation("modifiedBy", fields: [modifiedById], references: [id])
+  modifiedById  Int?
+  deletedDate   DateTime?
+  deletedBy     User?        @relation("deletedBy", fields: [deletedById], references: [id])
+  deletedById   Int?
+  usersCaptured User[]       @relation("capturedBy")
+  usersModified User[]       @relation("modifiedBy")
+  usersDeleted  User[]       @relation("deletedBy")
+}
+
+model Profile {
+  id   Int    @id @default(autoincrement())
+  name String @db.VarChar(128)
+  user User?
+}
+
+model Project {
+  id          Int       @id @default(autoincrement())
+  name        String    @db.VarChar(128)
+  workspace   Workspace @relation(fields: [workspaceId], references: [id])
+  workspaceId Int
+}
+
+model Workspace {
+  id        Int       @id @default(autoincrement())
+  name      String    @db.VarChar(128)
+  namespace String    @unique @db.VarChar(128)
+  projects  Project[]
+  users     User[]
+  // Control access
+  owner     User      @relation("owner", fields: [ownerId], references: [id])
+  ownerId   Int
+}

@@ -1,0 +1,20 @@
+{
+  "sqltools.connections": [
+    {
+      "previewLimit": 50,
+      "askForPassword": true,
+      "server": "localhost",
+      "port": 5432,
+      "driver": "PostgreSQL",
+      "name": "Hommy",
+      "connectString": "postgresql://postgres:postgres@localhost:5432/hommy?schema=public"
+    }
+  ],
+  "explorer.fileNesting.patterns": {
+    "*.component.ts": "${capture}.component.*",
+    "*.service.ts": "${capture}.service.*",
+    "*.controller.ts": "${capture}.controller.*",
+    "*.widget.ts": "${capture}.widget.*",
+    "*.page.ts": "${capture}.page.*"
+  },
+}
