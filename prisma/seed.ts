@@ -11,23 +11,30 @@ import {
 
 const prisma = new PrismaClient()
 
+async function createProfile({
+  name,
+  lastname,
+}: {
+  name: string
+  lastname: string
+}) {
+  return await prisma.profile.create({
+    data: { name, lastname },
+  })
+}
+
 async function createUser({
   name,
+  lastname,
   username,
   password,
 }: {
   name: string
+  lastname: string
   username: string
   password: string
 }) {
-  const profile = await prisma.profile.upsert({
-    where: { id: 1 },
-    update: {},
-    create: { name },
-  })
-
-  console.log({ profile })
-
+  const profile = await createProfile({ name, lastname })
   const salt = generateSalt()
   const hash = hashPassword(password, salt)
 
@@ -59,7 +66,7 @@ async function createWorkspace({
   user: User
 }) {
   return await prisma.workspace.upsert({
-    where: { namespace: 'development' },
+    where: { namespace },
     update: {},
     create: {
       name,
@@ -85,31 +92,75 @@ async function createProject({
   })
 }
 
+const DATA = {
+  workspace: {
+    name: 'Development Workspace',
+    namespace: 'development',
+    projects: [
+      {
+        name: 'Beverley Rocks',
+        residentes: [
+          { name: 'Fred', lastname: 'Flintstone' },
+          { name: 'Wilma', lastname: 'Flintstone' },
+          { name: 'Pebbles', lastname: 'Flintstone' },
+        ],
+      },
+      {
+        name: 'Hight Springs',
+        residentes: [
+          { name: 'George', lastname: 'Jetson' },
+          { name: 'Jane', lastname: 'Jetson' },
+          { name: 'Judy', lastname: 'Jetson' },
+          { name: 'Elroy', lastname: 'Jetson' },
+        ],
+      },
+      {
+        name: 'Mistery Hills',
+        residentes: [
+          { name: 'Fred', lastname: 'Jones' },
+          { name: 'Daphne', lastname: 'Blake' },
+          { name: 'Velma', lastname: 'Dinkley' },
+          { name: 'Norville', lastname: 'Rogers' },
+        ],
+      },
+    ],
+  },
+}
+
 async function main() {
   const user = await createUser({
-    name: 'Developer',
+    name: 'John',
+    lastname: 'Developer',
     username: 'root',
     password: 'root',
   })
-  console.log({ user })
 
   const workspace = await createWorkspace({
-    name: 'Development Workspace',
-    namespace: 'development',
+    name: DATA.workspace.name,
+    namespace: DATA.workspace.namespace,
     user: user,
   })
-  console.log({ workspace })
 
-  const projects = ['Beverley Woods', 'Palm Springs', 'Hidden Hills']
-  for (const name of projects) {
+  for (const { name, residentes } of DATA.workspace.projects) {
     const project = await createProject({ name, workspace })
-    console.log({ project })
+
+    for (const { name, lastname } of residentes) {
+      await prisma.neighbor.create({
+        data: {
+          projectId: project.id,
+          workspaceId: workspace.id,
+          name: `${name} ${lastname}`,
+          profile: { create: { name, lastname } },
+          capturedById: user.id,
+        },
+      })
+    }
   }
 }
 
 main()
-  .catch((e) => {
-    console.error(e)
+  .catch((error) => {
+    console.error(error)
     process.exit(1)
   })
   .finally(async () => {

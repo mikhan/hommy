@@ -13,6 +13,4 @@ export class SessionController {
       password: 'root',
     })
   }
-
-  // @Get('/session')
 }

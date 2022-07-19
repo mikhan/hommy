@@ -1,4 +1,21 @@
 {
+  "tailwindCSS.includeLanguages": {
+    "plaintext": "html"
+  },
+  "tailwindCSS.validate": true,
+  "scss.validate": false,
+  "editor.quickSuggestions": { "strings": true },
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": { "source.fixAll.eslint": true },
+  "files.watcherExclude": { "**/dist/**": true, "**/.logs/**": true },
+  "search.exclude": {
+    "**/dist": true,
+    ".yarn/**": true,
+    "yarn.lock": true,
+    ".logs/**": true
+  },
+  "files.exclude": {},
+  "prettier.prettierPath": "node_modules/prettier/index.js",
   "sqltools.connections": [
     {
       "previewLimit": 50,
@@ -16,5 +33,5 @@
     "*.controller.ts": "${capture}.controller.*",
     "*.widget.ts": "${capture}.widget.*",
     "*.page.ts": "${capture}.page.*"
-  },
+  }
 }

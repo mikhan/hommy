@@ -1,0 +1,41 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+directive @upper on FIELD_DEFINITION
+
+input CreateNeighborInput {
+  lastname: String!
+  name: String!
+}
+
+enum Gender {
+  FEMALE
+  MALE
+}
+
+type Mutation {
+  addNeighbor(input: CreateNeighborInput!, projectId: Int!, workspaceId: Int!): Neighbor!
+}
+
+type Neighbor {
+  id: Int!
+  name: String!
+  profile: Profile!
+  profileId: Int!
+  projectId: Int!
+  workspaceId: Int!
+}
+
+type Profile {
+  age: Int
+  gender: Gender
+  id: Int!
+  lastname: String!
+  name: String!
+}
+
+type Query {
+  residente(id: Int!, skip: Int = 0, take: Int = 25): Neighbor!
+  residentes(projectId: Int!, workspaceId: Int!): [Neighbor!]!
+}

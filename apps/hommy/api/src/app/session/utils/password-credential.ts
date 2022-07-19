@@ -15,12 +15,6 @@ export function hashPassword(password: string, salt: string) {
   return hasher.update(password).digest('hex')
 }
 
-export interface PasswordCredential {
-  username: string
-  type: 'PASSWORD'
-  password: string
-}
-
 export function assertPasswordCredentialPayload(
   payload: unknown,
 ): asserts payload is { salt: string; hash: string } {

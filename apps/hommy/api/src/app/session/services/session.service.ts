@@ -1,12 +1,15 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common'
 import { DatabaseService } from '../../core/services/database.service'
-import { GetCredentialOptions, isValidCredential } from '../utils/credential'
+import {
+  CredentialRequestOptions,
+  isValidCredential,
+} from '../utils/credential'
 
 @Injectable()
 export class SessionService {
   constructor(private db: DatabaseService) {}
 
-  async createToken(options: GetCredentialOptions) {
+  async createToken(options: CredentialRequestOptions) {
     const credential = await this.getCredential(options)
 
     if (!credential) {
@@ -16,7 +19,7 @@ export class SessionService {
     return credential
   }
 
-  async getCredential(options: GetCredentialOptions) {
+  async getCredential(options: CredentialRequestOptions) {
     const credential = await this.db.credential.findUnique({
       select: { userId: true, payload: true },
       where: {

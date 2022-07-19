@@ -7,6 +7,11 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum GenderEnum {
+  MALE
+  FEMALE
+}
+
 enum CredentialTypeEnum {
   PASSWORD
 }
@@ -19,6 +24,25 @@ model Credential {
   payload        Json
 
   @@id(name: "typeAndUsername", [credentialType, username])
+}
+
+model Neighbor {
+  id           Int       @id @default(autoincrement())
+  workspaceId  Int
+  projectId    Int
+  name         String    @db.VarChar(256)
+  profile      Profile   @relation(fields: [profileId], references: [id])
+  profileId    Int       @unique
+  // Metadata
+  capturedDate DateTime  @default(now()) @db.Timestamp(0)
+  capturedById Int
+  modifiedDate DateTime?
+  modifiedById Int?
+  deletedDate  DateTime?
+  deletedById  Int?
+
+  @@index([workspaceId])
+  @@index([projectId])
 }
 
 model User {
@@ -45,9 +69,13 @@ model User {
 }
 
 model Profile {
-  id   Int    @id @default(autoincrement())
-  name String @db.VarChar(128)
-  user User?
+  id       Int         @id @default(autoincrement())
+  name     String      @db.VarChar(128)
+  lastname String      @db.VarChar(128)
+  age      Int?
+  gender   GenderEnum?
+  user     User?
+  neighbor Neighbor?
 }
 
 model Project {

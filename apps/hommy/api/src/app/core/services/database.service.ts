@@ -1,34 +1,36 @@
-import {
-  INestApplication,
-  Injectable,
-  Logger,
-  OnModuleInit,
-} from '@nestjs/common'
+import { INestApplication, Injectable, OnModuleInit } from '@nestjs/common'
 import { Prisma, PrismaClient } from '@prisma/client'
+import { DATABASE_LOGGER } from '../constants/database-logger'
 
 const PrismaClientOptions = {
   log: [
     { level: 'query', emit: 'event' } as const,
-    { level: 'error', emit: 'stdout' } as const,
-    { level: 'info', emit: 'stdout' } as const,
-    { level: 'warn', emit: 'stdout' } as const,
+    { level: 'info', emit: 'event' } as const,
+    { level: 'warn', emit: 'event' } as const,
+    { level: 'error', emit: 'event' } as const,
   ],
 }
 
 type PrismaClientOptions = typeof PrismaClientOptions
 
 function getQueryFromEvent(event: Prisma.QueryEvent) {
-  const params = Object.fromEntries(
-    Object.entries(JSON.parse(event.params) as unknown[]).map(
-      ([key, value]) => {
-        key = `$${Number(key) + 1}`
-        value = typeof value === 'string' ? `"${value}"` : String(value)
-        return [key, value] as [string, string]
-      },
-    ),
-  )
+  // const params = Object.fromEntries(
+  //   Object.entries(JSON.parse(event.params) as unknown[]).map(
+  //     ([key, value]) => {
+  //       key = `$${Number(key) + 1}`
+  //       value = typeof value === 'string' ? `"${value}"` : String(value)
+  //       return [key, value] as [string, string]
+  //     },
+  //   ),
+  // )
 
-  return event.query.replace(/\$(\d+)/g, (param) => params[param])
+  return (
+    event.query
+      .replace(/"(\w+)"(?=\.)|(?<=\.)"(\w+)"/g, '$1$2')
+      .replace(/public\./g, '')
+      // .replace(/\$(\d+)/g, (param) => params[param])
+      .replace(/ LIMIT 1 OFFSET 0/, '')
+  )
 }
 
 @Injectable()
@@ -36,8 +38,6 @@ export class DatabaseService
   extends PrismaClient<PrismaClientOptions>
   implements OnModuleInit
 {
-  private logger = new Logger('Database', { timestamp: true })
-
   constructor() {
     super(PrismaClientOptions)
   }
@@ -46,15 +46,28 @@ export class DatabaseService
     await this.$connect()
 
     this.$on('query', (event) => this.logQuery(event))
+    this.$on('info', (event) => this.logInfo(event))
+    this.$on('warn', (event) => this.logWarn(event))
+    this.$on('error', (event) => this.logError(event))
   }
 
   async enableShutdownHooks(app: INestApplication) {
-    this.$on('beforeExit', async () => {
-      await app.close()
-    })
+    this.$on('beforeExit', async () => await app.close())
   }
 
-  logQuery(event: Prisma.QueryEvent) {
-    this.logger.verbose(getQueryFromEvent(event))
+  private logQuery(event: Prisma.QueryEvent) {
+    DATABASE_LOGGER.verbose(getQueryFromEvent(event))
+  }
+
+  private logInfo(event: Prisma.LogEvent) {
+    DATABASE_LOGGER.verbose(event.message)
+  }
+
+  private logWarn(event: Prisma.LogEvent) {
+    DATABASE_LOGGER.warn(event.message)
+  }
+
+  private logError(event: Prisma.LogEvent) {
+    DATABASE_LOGGER.error(event.message)
   }
 }

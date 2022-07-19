@@ -1,19 +1,31 @@
-import { Credential } from '@prisma/client'
-import { PasswordCredential, assertPasswordCredentialPayload, isValidPassword } from './password-credential'
+import {
+  assertPasswordCredentialPayload,
+  isValidPassword,
+} from './password-credential'
 
-export type GetCredentialOptions = PasswordCredential
+export interface PasswordCredentialOptions {
+  type: 'PASSWORD'
+  username: string
+  password: string
+}
+
+export type CredentialRequestOptions = PasswordCredentialOptions
 
 export function isValidCredential(
-  credential: Pick<Credential, 'userId' | 'payload'>,
-  options: GetCredentialOptions
+  credential: { payload: unknown },
+  options: CredentialRequestOptions,
 ) {
-  if (options.type === 'PASSWORD') {
-    assertPasswordCredentialPayload(credential.payload)
+  switch (options.type) {
+    case 'PASSWORD':
+      assertPasswordCredentialPayload(credential.payload)
 
-    return isValidPassword(
-      options.password,
-      credential.payload.salt,
-      credential.payload.hash
-    )
+      return isValidPassword(
+        options.password,
+        credential.payload.salt,
+        credential.payload.hash,
+      )
+
+    default:
+      throw new Error(`Unknown credential type '${options.type}'`)
   }
 }

@@ -10,6 +10,15 @@
         "outputPath": "dist/apps/hommy/api",
         "main": "apps/hommy/api/src/main.ts",
         "tsConfig": "apps/hommy/api/tsconfig.app.json",
+        "tsPlugins": [
+          {
+            "name": "@nestjs/graphql/plugin",
+            "options": {
+              "typeFileNameSuffix": [".model.ts"],
+              "introspectComments": true
+            }
+          }
+        ],
         "assets": ["apps/hommy/api/src/assets"]
       },
       "configurations": {

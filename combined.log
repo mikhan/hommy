@@ -1,0 +1,252 @@
+{"context":"GraphQL","level":"info","message":"query Residentes({\"workspaceId\":1,\"projectId\":1})","timestamp":"2022-07-17T14:26:33.210Z"}
+{"context":"GraphQL","level":"info","message":"query Residentes({\"workspaceId\":1,\"projectId\":1})","timestamp":"2022-07-17T14:28:29.458Z"}
+{"context":"GraphQL","level":"info","message":"query Residentes({\"workspaceId\":1,\"projectId\":1})","timestamp":"2022-07-17T14:29:56.584Z"}
+{"context":"App","level":"info","message":"Starting Nest application...","timestamp":"2022-07-17T14:46:30.059Z"}
+{"context":"App","level":"info","message":"DatabaseModule dependencies initialized","timestamp":"2022-07-17T14:46:30.060Z"}
+{"context":"App","level":"info","message":"CoreModule dependencies initialized","timestamp":"2022-07-17T14:46:30.061Z"}
+{"context":"App","level":"info","message":"CoreModule dependencies initialized","timestamp":"2022-07-17T14:46:30.061Z"}
+{"context":"App","level":"info","message":"AppModule dependencies initialized","timestamp":"2022-07-17T14:46:30.061Z"}
+{"context":"App","level":"info","message":"GraphqlModule dependencies initialized","timestamp":"2022-07-17T14:46:30.062Z"}
+{"context":"App","level":"info","message":"HommyModule dependencies initialized","timestamp":"2022-07-17T14:46:30.062Z"}
+{"context":"App","level":"info","message":"SessionModule dependencies initialized","timestamp":"2022-07-17T14:46:30.062Z"}
+{"context":"App","level":"info","message":"GraphQLSchemaBuilderModule dependencies initialized","timestamp":"2022-07-17T14:46:30.062Z"}
+{"context":"App","level":"info","message":"GraphQLModule dependencies initialized","timestamp":"2022-07-17T14:46:30.063Z"}
+{"context":"App","level":"info","message":"AppController {/hommy/api}:","timestamp":"2022-07-17T14:46:30.063Z"}
+{"context":"App","level":"info","message":"Mapped {/hommy/api, GET} route","timestamp":"2022-07-17T14:46:30.063Z"}
+{"context":"App","level":"info","message":"SessionController {/hommy/api/session}:","timestamp":"2022-07-17T14:46:30.064Z"}
+{"context":"App","level":"info","message":"Mapped {/hommy/api/session, GET} route","timestamp":"2022-07-17T14:46:30.064Z"}
+{"context":"App","level":"info","message":"Mapped {/hommy/graphql, POST} route","timestamp":"2022-07-17T14:46:30.064Z"}
+{"context":"App","level":"info","message":"Nest application successfully started","timestamp":"2022-07-17T14:46:30.064Z"}
+{"context":"App","level":"info","message":"🚀 Application is up on: http://0.0.0.0:3000/hommy/api","timestamp":"2022-07-17T14:46:30.065Z"}
+{"context":"App","level":"info","message":"Starting Nest application...","timestamp":"2022-07-17T14:47:52.829Z"}
+{"context":"App","level":"info","message":"DatabaseModule dependencies initialized","timestamp":"2022-07-17T14:47:52.830Z"}
+{"context":"App","level":"info","message":"CoreModule dependencies initialized","timestamp":"2022-07-17T14:47:52.831Z"}
+{"context":"App","level":"info","message":"CoreModule dependencies initialized","timestamp":"2022-07-17T14:47:52.831Z"}
+{"context":"App","level":"info","message":"AppModule dependencies initialized","timestamp":"2022-07-17T14:47:52.831Z"}
+{"context":"App","level":"info","message":"GraphqlModule dependencies initialized","timestamp":"2022-07-17T14:47:52.831Z"}
+{"context":"App","level":"info","message":"HommyModule dependencies initialized","timestamp":"2022-07-17T14:47:52.832Z"}
+{"context":"App","level":"info","message":"SessionModule dependencies initialized","timestamp":"2022-07-17T14:47:52.832Z"}
+{"context":"App","level":"info","message":"GraphQLSchemaBuilderModule dependencies initialized","timestamp":"2022-07-17T14:47:52.832Z"}
+{"context":"App","level":"info","message":"GraphQLModule dependencies initialized","timestamp":"2022-07-17T14:47:52.832Z"}
+{"context":"App","level":"info","message":"AppController {/hommy/api}:","timestamp":"2022-07-17T14:47:52.833Z"}
+{"context":"App","level":"info","message":"Mapped {/hommy/api, GET} route","timestamp":"2022-07-17T14:47:52.833Z"}
+{"context":"App","level":"info","message":"SessionController {/hommy/api/session}:","timestamp":"2022-07-17T14:47:52.833Z"}
+{"context":"App","level":"info","message":"Mapped {/hommy/api/session, GET} route","timestamp":"2022-07-17T14:47:52.833Z"}
+{"context":"App","level":"info","message":"Mapped {/hommy/graphql, POST} route","timestamp":"2022-07-17T14:47:52.834Z"}
+{"context":"App","level":"info","message":"Nest application successfully started","timestamp":"2022-07-17T14:47:52.834Z"}
+{"context":"App","level":"info","message":"🚀 Application is up on: http://0.0.0.0:3000/hommy/api","timestamp":"2022-07-17T14:47:52.834Z"}
+{"context":"App","level":"info","message":"Starting Nest application...","timestamp":"2022-07-17T14:48:40.768Z"}
+{"context":"App","level":"info","message":"DatabaseModule dependencies initialized","timestamp":"2022-07-17T14:48:40.770Z"}
+{"context":"App","level":"info","message":"CoreModule dependencies initialized","timestamp":"2022-07-17T14:48:40.770Z"}
+{"context":"App","level":"info","message":"CoreModule dependencies initialized","timestamp":"2022-07-17T14:48:40.771Z"}
+{"context":"App","level":"info","message":"AppModule dependencies initialized","timestamp":"2022-07-17T14:48:40.771Z"}
+{"context":"App","level":"info","message":"GraphqlModule dependencies initialized","timestamp":"2022-07-17T14:48:40.771Z"}
+{"context":"App","level":"info","message":"HommyModule dependencies initialized","timestamp":"2022-07-17T14:48:40.771Z"}
+{"context":"App","level":"info","message":"SessionModule dependencies initialized","timestamp":"2022-07-17T14:48:40.772Z"}
+{"context":"App","level":"info","message":"GraphQLSchemaBuilderModule dependencies initialized","timestamp":"2022-07-17T14:48:40.772Z"}
+{"context":"App","level":"info","message":"GraphQLModule dependencies initialized","timestamp":"2022-07-17T14:48:40.772Z"}
+{"context":"App","level":"info","message":"AppController {/hommy/api}:","timestamp":"2022-07-17T14:48:40.772Z"}
+{"context":"App","level":"info","message":"Mapped {/hommy/api, GET} route","timestamp":"2022-07-17T14:48:40.773Z"}
+{"context":"App","level":"info","message":"SessionController {/hommy/api/session}:","timestamp":"2022-07-17T14:48:40.773Z"}
+{"context":"App","level":"info","message":"Mapped {/hommy/api/session, GET} route","timestamp":"2022-07-17T14:48:40.773Z"}
+{"context":"App","level":"info","message":"Mapped {/hommy/graphql, POST} route","timestamp":"2022-07-17T14:48:40.773Z"}
+{"context":"App","level":"info","message":"Nest application successfully started","timestamp":"2022-07-17T14:48:40.774Z"}
+{"context":"App","level":"info","message":"🚀 Application is up on: http://0.0.0.0:3000/hommy/api","timestamp":"2022-07-17T14:48:40.774Z"}
+{"context":"GraphQL","level":"info","message":"query Residentes({\"workspaceId\":1,\"projectId\":1})","timestamp":"2022-07-17T14:48:56.330Z"}
+{"context":"App","level":"info","message":"Starting Nest application...","timestamp":"2022-07-17T14:49:11.553Z"}
+{"context":"App","level":"info","message":"DatabaseModule dependencies initialized","timestamp":"2022-07-17T14:49:11.554Z"}
+{"context":"App","level":"info","message":"CoreModule dependencies initialized","timestamp":"2022-07-17T14:49:11.555Z"}
+{"context":"App","level":"info","message":"CoreModule dependencies initialized","timestamp":"2022-07-17T14:49:11.555Z"}
+{"context":"App","level":"info","message":"AppModule dependencies initialized","timestamp":"2022-07-17T14:49:11.555Z"}
+{"context":"App","level":"info","message":"GraphqlModule dependencies initialized","timestamp":"2022-07-17T14:49:11.556Z"}
+{"context":"App","level":"info","message":"HommyModule dependencies initialized","timestamp":"2022-07-17T14:49:11.556Z"}
+{"context":"App","level":"info","message":"SessionModule dependencies initialized","timestamp":"2022-07-17T14:49:11.556Z"}
+{"context":"App","level":"info","message":"GraphQLSchemaBuilderModule dependencies initialized","timestamp":"2022-07-17T14:49:11.557Z"}
+{"context":"App","level":"info","message":"GraphQLModule dependencies initialized","timestamp":"2022-07-17T14:49:11.557Z"}
+{"context":"App","level":"info","message":"AppController {/hommy/api}:","timestamp":"2022-07-17T14:49:11.558Z"}
+{"context":"App","level":"info","message":"Mapped {/hommy/api, GET} route","timestamp":"2022-07-17T14:49:11.558Z"}
+{"context":"App","level":"info","message":"SessionController {/hommy/api/session}:","timestamp":"2022-07-17T14:49:11.558Z"}
+{"context":"App","level":"info","message":"Mapped {/hommy/api/session, GET} route","timestamp":"2022-07-17T14:49:11.558Z"}
+{"context":"App","level":"info","message":"Mapped {/hommy/graphql, POST} route","timestamp":"2022-07-17T14:49:11.559Z"}
+{"context":"App","level":"info","message":"Nest application successfully started","timestamp":"2022-07-17T14:49:11.559Z"}
+{"context":"App","level":"info","message":"🚀 Application is up on: http://0.0.0.0:3000/hommy/api","timestamp":"2022-07-17T14:49:11.560Z"}
+{"context":"GraphQL","level":"info","message":"query Residentes({\"workspaceId\":1,\"projectId\":1})","timestamp":"2022-07-17T14:49:14.099Z"}
+{"context":"App","level":"info","message":"Starting Nest application...","timestamp":"2022-07-17T14:52:24.132Z"}
+{"context":"App","level":"info","message":"DatabaseModule dependencies initialized","timestamp":"2022-07-17T14:52:24.134Z"}
+{"context":"App","level":"info","message":"CoreModule dependencies initialized","timestamp":"2022-07-17T14:52:24.135Z"}
+{"context":"App","level":"info","message":"CoreModule dependencies initialized","timestamp":"2022-07-17T14:52:24.136Z"}
+{"context":"App","level":"info","message":"AppModule dependencies initialized","timestamp":"2022-07-17T14:52:24.137Z"}
+{"context":"App","level":"info","message":"GraphqlModule dependencies initialized","timestamp":"2022-07-17T14:52:24.137Z"}
+{"context":"App","level":"info","message":"HommyModule dependencies initialized","timestamp":"2022-07-17T14:52:24.138Z"}
+{"context":"App","level":"info","message":"SessionModule dependencies initialized","timestamp":"2022-07-17T14:52:24.139Z"}
+{"context":"App","level":"info","message":"GraphQLSchemaBuilderModule dependencies initialized","timestamp":"2022-07-17T14:52:24.139Z"}
+{"context":"App","level":"info","message":"GraphQLModule dependencies initialized","timestamp":"2022-07-17T14:52:24.139Z"}
+{"context":"App","level":"info","message":"AppController {/hommy/api}:","timestamp":"2022-07-17T14:52:24.140Z"}
+{"context":"App","level":"info","message":"Mapped {/hommy/api, GET} route","timestamp":"2022-07-17T14:52:24.140Z"}
+{"context":"App","level":"info","message":"SessionController {/hommy/api/session}:","timestamp":"2022-07-17T14:52:24.140Z"}
+{"context":"App","level":"info","message":"Mapped {/hommy/api/session, GET} route","timestamp":"2022-07-17T14:52:24.141Z"}
+{"context":"App","level":"info","message":"Mapped {/hommy, POST} route","timestamp":"2022-07-17T14:52:24.141Z"}
+{"context":"App","level":"info","message":"Nest application successfully started","timestamp":"2022-07-17T14:52:24.141Z"}
+{"context":"App","level":"info","message":"🚀 Application is up on: http://0.0.0.0:3000/hommy/api","timestamp":"2022-07-17T14:52:24.142Z"}
+{"context":"App","level":"info","message":"Starting Nest application...","timestamp":"2022-07-17T14:57:45.979Z"}
+{"context":"App","level":"info","message":"DatabaseModule dependencies initialized","timestamp":"2022-07-17T14:57:45.981Z"}
+{"context":"App","level":"info","message":"CoreModule dependencies initialized","timestamp":"2022-07-17T14:57:45.981Z"}
+{"context":"App","level":"info","message":"CoreModule dependencies initialized","timestamp":"2022-07-17T14:57:45.982Z"}
+{"context":"App","level":"info","message":"AppModule dependencies initialized","timestamp":"2022-07-17T14:57:45.982Z"}
+{"context":"App","level":"info","message":"GraphqlModule dependencies initialized","timestamp":"2022-07-17T14:57:45.982Z"}
+{"context":"App","level":"info","message":"HommyModule dependencies initialized","timestamp":"2022-07-17T14:57:45.983Z"}
+{"context":"App","level":"info","message":"SessionModule dependencies initialized","timestamp":"2022-07-17T14:57:45.983Z"}
+{"context":"App","level":"info","message":"GraphQLSchemaBuilderModule dependencies initialized","timestamp":"2022-07-17T14:57:45.983Z"}
+{"context":"App","level":"info","message":"GraphQLModule dependencies initialized","timestamp":"2022-07-17T14:57:45.984Z"}
+{"context":"App","level":"info","message":"AppController {/hommy/api}:","timestamp":"2022-07-17T14:57:45.984Z"}
+{"context":"App","level":"info","message":"Mapped {/hommy/api, GET} route","timestamp":"2022-07-17T14:57:45.984Z"}
+{"context":"App","level":"info","message":"SessionController {/hommy/api/session}:","timestamp":"2022-07-17T14:57:45.984Z"}
+{"context":"App","level":"info","message":"Mapped {/hommy/api/session, GET} route","timestamp":"2022-07-17T14:57:45.985Z"}
+{"context":"App","level":"info","message":"Mapped {/hommy, POST} route","timestamp":"2022-07-17T14:57:45.985Z"}
+{"context":"App","level":"info","message":"Nest application successfully started","timestamp":"2022-07-17T14:57:45.985Z"}
+{"context":"App","level":"info","message":"🚀 Application is up on: http://0.0.0.0:3000/hommy/api","timestamp":"2022-07-17T14:57:45.986Z"}
+{"context":"App","level":"info","message":"Starting Nest application...","timestamp":"2022-07-17T14:58:49.371Z"}
+{"context":"App","level":"info","message":"DatabaseModule dependencies initialized","timestamp":"2022-07-17T14:58:49.373Z"}
+{"context":"App","level":"info","message":"CoreModule dependencies initialized","timestamp":"2022-07-17T14:58:49.374Z"}
+{"context":"App","level":"info","message":"CoreModule dependencies initialized","timestamp":"2022-07-17T14:58:49.375Z"}
+{"context":"App","level":"info","message":"AppModule dependencies initialized","timestamp":"2022-07-17T14:58:49.375Z"}
+{"context":"App","level":"info","message":"GraphqlModule dependencies initialized","timestamp":"2022-07-17T14:58:49.376Z"}
+{"context":"App","level":"info","message":"HommyModule dependencies initialized","timestamp":"2022-07-17T14:58:49.376Z"}
+{"context":"App","level":"info","message":"SessionModule dependencies initialized","timestamp":"2022-07-17T14:58:49.377Z"}
+{"context":"App","level":"info","message":"GraphQLSchemaBuilderModule dependencies initialized","timestamp":"2022-07-17T14:58:49.377Z"}
+{"context":"App","level":"info","message":"GraphQLModule dependencies initialized","timestamp":"2022-07-17T14:58:49.378Z"}
+{"context":"App","level":"info","message":"AppController {/hommy/api}:","timestamp":"2022-07-17T14:58:49.378Z"}
+{"context":"App","level":"info","message":"Mapped {/hommy/api, GET} route","timestamp":"2022-07-17T14:58:49.378Z"}
+{"context":"App","level":"info","message":"SessionController {/hommy/api/session}:","timestamp":"2022-07-17T14:58:49.379Z"}
+{"context":"App","level":"info","message":"Mapped {/hommy/api/session, GET} route","timestamp":"2022-07-17T14:58:49.379Z"}
+{"context":"App","level":"info","message":"Mapped {/hommy, POST} route","timestamp":"2022-07-17T14:58:49.379Z"}
+{"context":"App","level":"info","message":"Nest application successfully started","timestamp":"2022-07-17T14:58:49.379Z"}
+{"context":"App","level":"info","message":"🚀 Application is up on: http://0.0.0.0:3000/hommy/api","timestamp":"2022-07-17T14:58:49.380Z"}
+{"context":"App","level":"info","message":"Starting Nest application...","timestamp":"2022-07-17T15:00:13.696Z"}
+{"context":"App","level":"info","message":"DatabaseModule dependencies initialized","timestamp":"2022-07-17T15:00:13.698Z"}
+{"context":"App","level":"info","message":"CoreModule dependencies initialized","timestamp":"2022-07-17T15:00:13.698Z"}
+{"context":"App","level":"info","message":"CoreModule dependencies initialized","timestamp":"2022-07-17T15:00:13.699Z"}
+{"context":"App","level":"info","message":"AppModule dependencies initialized","timestamp":"2022-07-17T15:00:13.699Z"}
+{"context":"App","level":"info","message":"GraphqlModule dependencies initialized","timestamp":"2022-07-17T15:00:13.699Z"}
+{"context":"App","level":"info","message":"HommyModule dependencies initialized","timestamp":"2022-07-17T15:00:13.699Z"}
+{"context":"App","level":"info","message":"SessionModule dependencies initialized","timestamp":"2022-07-17T15:00:13.700Z"}
+{"context":"App","level":"info","message":"GraphQLSchemaBuilderModule dependencies initialized","timestamp":"2022-07-17T15:00:13.700Z"}
+{"context":"App","level":"info","message":"GraphQLModule dependencies initialized","timestamp":"2022-07-17T15:00:13.700Z"}
+{"context":"App","level":"info","message":"AppController {/hommy/api}:","timestamp":"2022-07-17T15:00:13.701Z"}
+{"context":"App","level":"info","message":"Mapped {/hommy/api, GET} route","timestamp":"2022-07-17T15:00:13.701Z"}
+{"context":"App","level":"info","message":"SessionController {/hommy/api/session}:","timestamp":"2022-07-17T15:00:13.701Z"}
+{"context":"App","level":"info","message":"Mapped {/hommy/api/session, GET} route","timestamp":"2022-07-17T15:00:13.701Z"}
+{"context":"App","level":"info","message":"Mapped {/hommy, POST} route","timestamp":"2022-07-17T15:00:13.702Z"}
+{"context":"App","level":"info","message":"Nest application successfully started","timestamp":"2022-07-17T15:00:13.702Z"}
+{"context":"App","level":"info","message":"🚀 Application is up on: http://0.0.0.0:3000/hommy/api","timestamp":"2022-07-17T15:00:13.703Z"}
+{"context":"App","level":"info","message":"Starting Nest application...","timestamp":"2022-07-17T15:01:21.515Z"}
+{"context":"App","level":"info","message":"DatabaseModule dependencies initialized","timestamp":"2022-07-17T15:01:21.517Z"}
+{"context":"App","level":"info","message":"CoreModule dependencies initialized","timestamp":"2022-07-17T15:01:21.517Z"}
+{"context":"App","level":"info","message":"CoreModule dependencies initialized","timestamp":"2022-07-17T15:01:21.518Z"}
+{"context":"App","level":"info","message":"AppModule dependencies initialized","timestamp":"2022-07-17T15:01:21.518Z"}
+{"context":"App","level":"info","message":"GraphqlModule dependencies initialized","timestamp":"2022-07-17T15:01:21.518Z"}
+{"context":"App","level":"info","message":"HommyModule dependencies initialized","timestamp":"2022-07-17T15:01:21.518Z"}
+{"context":"App","level":"info","message":"SessionModule dependencies initialized","timestamp":"2022-07-17T15:01:21.519Z"}
+{"context":"App","level":"info","message":"GraphQLSchemaBuilderModule dependencies initialized","timestamp":"2022-07-17T15:01:21.519Z"}
+{"context":"App","level":"info","message":"GraphQLModule dependencies initialized","timestamp":"2022-07-17T15:01:21.519Z"}
+{"context":"App","level":"info","message":"AppController {/hommy/api}:","timestamp":"2022-07-17T15:01:21.520Z"}
+{"context":"App","level":"info","message":"Mapped {/hommy/api, GET} route","timestamp":"2022-07-17T15:01:21.520Z"}
+{"context":"App","level":"info","message":"SessionController {/hommy/api/session}:","timestamp":"2022-07-17T15:01:21.520Z"}
+{"context":"App","level":"info","message":"Mapped {/hommy/api/session, GET} route","timestamp":"2022-07-17T15:01:21.520Z"}
+{"context":"App","level":"info","message":"Mapped {/hommy, POST} route","timestamp":"2022-07-17T15:01:21.521Z"}
+{"context":"App","level":"info","message":"Nest application successfully started","timestamp":"2022-07-17T15:01:21.521Z"}
+{"context":"App","level":"info","message":"🚀 Application is up on: http://0.0.0.0:3000/hommy/api","timestamp":"2022-07-17T15:01:21.522Z"}
+{"context":"App","level":"info","message":"Starting Nest application...","timestamp":"2022-07-17T15:02:26.410Z"}
+{"context":"App","level":"info","message":"DatabaseModule dependencies initialized","timestamp":"2022-07-17T15:02:26.411Z"}
+{"context":"App","level":"info","message":"CoreModule dependencies initialized","timestamp":"2022-07-17T15:02:26.412Z"}
+{"context":"App","level":"info","message":"CoreModule dependencies initialized","timestamp":"2022-07-17T15:02:26.412Z"}
+{"context":"App","level":"info","message":"AppModule dependencies initialized","timestamp":"2022-07-17T15:02:26.412Z"}
+{"context":"App","level":"info","message":"GraphqlModule dependencies initialized","timestamp":"2022-07-17T15:02:26.412Z"}
+{"context":"App","level":"info","message":"HommyModule dependencies initialized","timestamp":"2022-07-17T15:02:26.413Z"}
+{"context":"App","level":"info","message":"SessionModule dependencies initialized","timestamp":"2022-07-17T15:02:26.413Z"}
+{"context":"App","level":"info","message":"GraphQLSchemaBuilderModule dependencies initialized","timestamp":"2022-07-17T15:02:26.413Z"}
+{"context":"App","level":"info","message":"GraphQLModule dependencies initialized","timestamp":"2022-07-17T15:02:26.414Z"}
+{"context":"App","level":"info","message":"AppController {/hommy/api}:","timestamp":"2022-07-17T15:02:26.414Z"}
+{"context":"App","level":"info","message":"Mapped {/hommy/api, GET} route","timestamp":"2022-07-17T15:02:26.414Z"}
+{"context":"App","level":"info","message":"SessionController {/hommy/api/session}:","timestamp":"2022-07-17T15:02:26.415Z"}
+{"context":"App","level":"info","message":"Mapped {/hommy/api/session, GET} route","timestamp":"2022-07-17T15:02:26.415Z"}
+{"context":"App","level":"info","message":"Mapped {/hommy, POST} route","timestamp":"2022-07-17T15:02:26.415Z"}
+{"context":"App","level":"info","message":"Nest application successfully started","timestamp":"2022-07-17T15:02:26.415Z"}
+{"context":"App","level":"info","message":"🚀 Application is up on: http://0.0.0.0:3000/hommy/api","timestamp":"2022-07-17T15:02:26.416Z"}
+{"context":"App","level":"info","message":"Starting Nest application...","timestamp":"2022-07-17T15:02:34.857Z"}
+{"context":"App","level":"info","message":"DatabaseModule dependencies initialized","timestamp":"2022-07-17T15:02:34.859Z"}
+{"context":"App","level":"info","message":"CoreModule dependencies initialized","timestamp":"2022-07-17T15:02:34.859Z"}
+{"context":"App","level":"info","message":"CoreModule dependencies initialized","timestamp":"2022-07-17T15:02:34.859Z"}
+{"context":"App","level":"info","message":"AppModule dependencies initialized","timestamp":"2022-07-17T15:02:34.860Z"}
+{"context":"App","level":"info","message":"GraphqlModule dependencies initialized","timestamp":"2022-07-17T15:02:34.860Z"}
+{"context":"App","level":"info","message":"HommyModule dependencies initialized","timestamp":"2022-07-17T15:02:34.861Z"}
+{"context":"App","level":"info","message":"SessionModule dependencies initialized","timestamp":"2022-07-17T15:02:34.861Z"}
+{"context":"App","level":"info","message":"GraphQLSchemaBuilderModule dependencies initialized","timestamp":"2022-07-17T15:02:34.862Z"}
+{"context":"App","level":"info","message":"GraphQLModule dependencies initialized","timestamp":"2022-07-17T15:02:34.862Z"}
+{"context":"App","level":"info","message":"AppController {/hommy/api}:","timestamp":"2022-07-17T15:02:34.862Z"}
+{"context":"App","level":"info","message":"Mapped {/hommy/api, GET} route","timestamp":"2022-07-17T15:02:34.863Z"}
+{"context":"App","level":"info","message":"SessionController {/hommy/api/session}:","timestamp":"2022-07-17T15:02:34.863Z"}
+{"context":"App","level":"info","message":"Mapped {/hommy/api/session, GET} route","timestamp":"2022-07-17T15:02:34.863Z"}
+{"context":"App","level":"info","message":"Mapped {/hommy, POST} route","timestamp":"2022-07-17T15:02:34.863Z"}
+{"context":"App","level":"info","message":"Nest application successfully started","timestamp":"2022-07-17T15:02:34.864Z"}
+{"context":"App","level":"info","message":"🚀 Application is up on: http://0.0.0.0:3000/hommy/api","timestamp":"2022-07-17T15:02:34.864Z"}
+{"context":"App","level":"info","message":"🚀 Application is up on: http://0.0.0.0:3000/hommy/api","timestamp":"2022-07-17T15:03:42.951Z"}
+{"context":"App","level":"info","message":"🚀 Application is up on: http://0.0.0.0:3000/hommy/api","timestamp":"2022-07-17T15:05:22.168Z"}
+{"context":"App","level":"info","message":"🚀 Application is up on: http://0.0.0.0:3000/hommy/api","timestamp":"2022-07-17T15:06:44.107Z"}
+{"context":"Core","level":"info","message":"🚀 Application is up on: http://0.0.0.0:3000/hommy/api","timestamp":"2022-07-17T15:07:32.895Z"}
+{"context":"Core","level":"info","message":"🚀 Application is up on: http://0.0.0.0:3000/hommy/api","timestamp":"2022-07-17T15:14:41.019Z"}
+{"context":"Core","level":"info","message":"🚀 Application is up on: http://0.0.0.0:3000/hommy/api","timestamp":"2022-07-17T15:14:47.621Z"}
+{"context":"Core","level":"info","message":"🚀 Application is up on: http://0.0.0.0:3000/hommy/api","timestamp":"2022-07-17T15:18:03.004Z"}
+{"context":"Core","level":"info","message":"🚀 Application is up on: http://0.0.0.0:3000/hommy/api","timestamp":"2022-07-17T15:19:08.424Z"}
+{"context":"Core","level":"info","message":"🚀 Application is up on: http://0.0.0.0:3000/hommy/api","timestamp":"2022-07-17T15:23:39.365Z"}
+{"context":"Core","level":"info","message":"🚀 Application is up on: http://0.0.0.0:3000/hommy/api","timestamp":"2022-07-17T15:24:10.339Z"}
+{"context":"Core","level":"info","message":"🚀 Application is up on: http://0.0.0.0:3000/hommy/api","timestamp":"2022-07-17T15:24:34.932Z"}
+{"context":"Core","level":"info","message":"🚀 Application is up on: http://0.0.0.0:3000/hommy/api","timestamp":"2022-07-17T15:24:37.908Z"}
+{"context":"GraphQL","level":"info","message":"mutation AddNeighbor({\"lastname\":\"Rojas\",\"name\":\"Jorge\"})","timestamp":"2022-07-17T15:25:25.811Z"}
+{"context":"Core","level":"info","message":"🚀 Application is up on: http://0.0.0.0:3000/hommy/api","timestamp":"2022-07-17T15:29:35.738Z"}
+{"context":"Core","level":"info","message":"🚀 Application is up on: http://0.0.0.0:3000/hommy/api","timestamp":"2022-07-17T15:29:42.723Z"}
+{"context":"Core","level":"info","message":"🚀 Application is up on: http://0.0.0.0:3000/hommy/api","timestamp":"2022-07-17T15:37:01.142Z"}
+{"context":"Core","level":"info","message":"🚀 Application is up on: http://0.0.0.0:3000/hommy/api","timestamp":"2022-07-17T15:38:04.023Z"}
+{"context":"Core","level":"info","message":"🚀 Application is up on: http://0.0.0.0:3000/hommy/api","timestamp":"2022-07-17T15:39:10.806Z"}
+{"context":"Core","level":"info","message":"🚀 Application is up on: http://0.0.0.0:3000/hommy/api","timestamp":"2022-07-17T15:39:59.254Z"}
+{"context":"Core","level":"info","message":"🚀 Application is up on: http://0.0.0.0:3000/hommy/api","timestamp":"2022-07-17T15:40:18.725Z"}
+{"context":"Core","level":"info","message":"🚀 Application is up on: http://0.0.0.0:3000/hommy/api","timestamp":"2022-07-17T15:40:35.586Z"}
+{"context":"Core","level":"info","message":"🚀 Application is up on: http://0.0.0.0:3000/hommy/api","timestamp":"2022-07-17T15:41:39.230Z"}
+{"context":"Core","level":"info","message":"🚀 Application is up on: http://0.0.0.0:3000/hommy/api","timestamp":"2022-07-17T15:42:12.346Z"}
+{"context":"Core","level":"info","message":"🚀 Application is up on: http://0.0.0.0:3000/hommy/api","timestamp":"2022-07-17T15:43:06.561Z"}
+{"context":"Core","level":"info","message":"🚀 Application is up on: http://0.0.0.0:3000/hommy/api","timestamp":"2022-07-17T15:43:29.918Z"}
+{"context":"Core","level":"info","message":"🚀 Application is up on: http://0.0.0.0:3000/hommy/api","timestamp":"2022-07-17T15:44:57.003Z"}
+{"context":"Core","level":"info","message":"🚀 Application is up on: http://0.0.0.0:3000/hommy/api","timestamp":"2022-07-17T15:45:41.600Z"}
+{"context":"Core","level":"info","message":"🚀 Application is up on: http://0.0.0.0:3000/hommy/api","timestamp":"2022-07-17T15:45:55.434Z"}
+{"context":"Core","level":"info","message":"🚀 Application is up on: http://0.0.0.0:3000/hommy/api","timestamp":"2022-07-17T15:46:12.530Z"}
+{"context":"Core","level":"info","message":"🚀 Application is up on: http://0.0.0.0:3000/hommy/api","timestamp":"2022-07-17T15:48:44.194Z"}
+{"context":"Core","level":"info","message":"🚀 Application is up on: http://0.0.0.0:3000/hommy/api","timestamp":"2022-07-17T15:51:28.470Z"}
+{"context":"GraphQL","level":"info","message":"mutation AddNeighbor({\"input\":{\"lastname\":\"Rojas\",\"name\":\"Jorge\",\"projectId\":1,\"workspaceId\":1}})","timestamp":"2022-07-17T15:53:09.340Z"}
+{"context":"Core","level":"info","message":"🚀 Application is up on: http://0.0.0.0:3000/hommy/api","timestamp":"2022-07-17T15:54:53.469Z"}
+{"context":"GraphQL","level":"info","message":"mutation AddNeighbor({\"input\":{\"lastname\":\"Rojas\",\"name\":\"Jorge\",\"projectId\":1,\"workspaceId\":1}})","timestamp":"2022-07-17T15:54:59.386Z"}
+{"context":"Core","level":"info","message":"🚀 Application is up on: http://0.0.0.0:3000/hommy/api","timestamp":"2022-07-17T15:56:50.605Z"}
+{"context":"GraphQL","level":"info","message":"mutation AddNeighbor({\"input\":{\"lastname\":\"Rojas\",\"name\":\"Jorge\",\"projectId\":1,\"workspaceId\":1}})","timestamp":"2022-07-17T15:56:53.454Z"}
+{"context":"Core","level":"info","message":"🚀 Application is up on: http://0.0.0.0:3000/hommy/api","timestamp":"2022-07-17T15:57:25.483Z"}
+{"context":"GraphQL","level":"info","message":"mutation AddNeighbor({\"input\":{\"lastname\":\"Rojas\",\"name\":\"Jorge\",\"projectId\":1,\"workspaceId\":1}})","timestamp":"2022-07-17T15:57:26.938Z"}
+{"context":"Core","level":"info","message":"🚀 Application is up on: http://0.0.0.0:3000/hommy/api","timestamp":"2022-07-17T15:57:56.111Z"}
+{"context":"GraphQL","level":"info","message":"mutation AddNeighbor({\"input\":{\"lastname\":\"Rojas\",\"name\":\"Jorge\",\"projectId\":1,\"workspaceId\":1}})","timestamp":"2022-07-17T15:57:57.865Z"}
+{"context":"Core","level":"info","message":"🚀 Application is up on: http://0.0.0.0:3000/hommy/api","timestamp":"2022-07-17T15:59:10.128Z"}
+{"context":"Core","level":"info","message":"🚀 Application is up on: http://0.0.0.0:3000/hommy/api","timestamp":"2022-07-17T16:00:08.199Z"}
+{"context":"Core","level":"info","message":"🚀 Application is up on: http://0.0.0.0:3000/hommy/api","timestamp":"2022-07-17T16:01:59.184Z"}
+{"context":"Core","level":"info","message":"🚀 Application is up on: http://0.0.0.0:3000/hommy/api","timestamp":"2022-07-17T16:03:10.620Z"}
+{"context":"GraphQL","level":"info","message":"mutation AddNeighbor({\"input\":{\"lastname\":\"Rojas\",\"name\":\"Jorge\",\"projectId\":1,\"workspaceId\":1}})","timestamp":"2022-07-17T16:03:12.594Z"}
+{"context":"Core","level":"info","message":"🚀 Application is up on: http://0.0.0.0:3000/hommy/api","timestamp":"2022-07-17T23:21:25.902Z"}
+{"context":"Core","level":"info","message":"🚀 Application is up on: http://0.0.0.0:3000/hommy/api","timestamp":"2022-07-17T23:22:17.926Z"}
+{"context":"GraphQL","level":"info","message":"mutation AddNeighbor({\"input\":{\"lastname\":\"Rojas\",\"name\":\"Jorge\"},\"projectId\":1,\"workspaceId\":1})","timestamp":"2022-07-17T23:24:08.226Z"}
+{"context":"GraphQL","level":"info","message":"mutation AddNeighbor({\"input\":{\"lastname\":\"Rojas\",\"name\":\"Jorge\"},\"projectId\":1,\"workspaceId\":1})","timestamp":"2022-07-17T23:24:10.140Z"}
+{"context":"Core","level":"info","message":"🚀 Application is up on: http://0.0.0.0:3000/hommy/api","timestamp":"2022-07-17T23:37:27.500Z"}
+{"context":"GraphQL","level":"info","message":"mutation AddNeighbor({\"projectId\":1,\"workspaceId\":1,\"input\":{\"lastname\":\"Rojas\",\"name\":\"Jorge\"}})","timestamp":"2022-07-17T23:38:09.199Z"}
+{"context":"GraphQL","level":"info","message":"mutation AddNeighbor({\"projectId\":1,\"workspaceId\":1,\"input\":{\"lastname\":\"Rojas\",\"name\":\"Jorge\"}})","timestamp":"2022-07-17T23:42:17.317Z"}
+{"context":"Core","level":"info","message":"🚀 Application is up on: http://0.0.0.0:3000/hommy/api","timestamp":"2022-07-17T23:43:01.845Z"}
+{"context":"GraphQL","level":"info","message":"mutation AddNeighbor({\"projectId\":1,\"workspaceId\":1,\"input\":{\"lastname\":\"Rojas\",\"name\":\"Jorge\"}})","timestamp":"2022-07-17T23:43:04.284Z"}
+{"context":"GraphQL","level":"info","message":"mutation AddNeighbor({\"projectId\":1,\"workspaceId\":1,\"input\":{\"lastname\":\"Rojas\",\"name\":\"Jorge\"}})","timestamp":"2022-07-17T23:45:47.319Z"}
+{"context":"GraphQL","level":"info","message":"mutation AddNeighbor({\"projectId\":1,\"workspaceId\":1,\"input\":{\"lastname\":\"Rojas\",\"name\":\"Jorge\"}})","timestamp":"2022-07-17T23:46:00.566Z"}
+{"context":"Core","level":"info","message":"🚀 Application is up on: http://0.0.0.0:3000/hommy/api","timestamp":"2022-07-17T23:47:56.928Z"}
+{"context":"GraphQL","level":"info","message":"mutation AddNeighbor({\"projectId\":1,\"workspaceId\":1,\"input\":{\"lastname\":\"Rojas\",\"name\":\"Jorge\"}})","timestamp":"2022-07-17T23:48:00.751Z"}
+{"context":"Core","level":"info","message":"🚀 Application is up on: http://0.0.0.0:3000/hommy/api","timestamp":"2022-07-19T05:46:28.114Z"}
+{"context":"Core","level":"info","message":"🚀 Application is up on: http://0.0.0.0:3000/hommy/api","timestamp":"2022-07-19T05:48:27.459Z"}
