@@ -6,33 +6,17 @@ const fileFormat = winston.format.combine(
   winston.format.json(),
 )
 
-const consoleFormat = winston.format.combine(
-  winston.format.ms(),
-  winston.format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }),
-  winston.format.colorize({ level: false, message: true }),
-  winston.format.printf(function ({ level, message, context, timestamp, ms }) {
-    level = level.padStart(7, ' ').toUpperCase()
-
-    return `${timestamp} ${level} [${context}] ${message} ${ms}`
-  }),
-)
-
 const winstonLogger = winston.createLogger({
   level: 'debug',
+  format: fileFormat,
   transports: [
-    new winston.transports.Console({
-      level: 'debug',
-      format: consoleFormat,
-    }),
     new winston.transports.File({
       level: 'error',
       filename: 'error.log',
-      format: fileFormat,
     }),
     new winston.transports.File({
       level: 'info',
       filename: 'combined.log',
-      format: fileFormat,
     }),
   ],
 })
@@ -42,28 +26,28 @@ export class AppLogger extends ConsoleLogger {
     super(context, options)
   }
 
-  error(message: string) {
-    if (!this.context) return
-    winstonLogger.error({ level: 'error', message, context: this.context })
+  error(message: string, context = this.context) {
+    winstonLogger.error({ level: 'error', message, context })
+    super.error(message, context)
   }
 
-  warn(message: string) {
-    if (!this.context) return
-    winstonLogger.warn({ level: 'warn', message, context: this.context })
+  warn(message: string, context = this.context) {
+    winstonLogger.warn({ level: 'warn', message, context })
+    super.warn(message, context)
   }
 
-  log(message: string) {
-    if (!this.context) return
-    winstonLogger.log({ level: 'info', message, context: this.context })
+  log(message: string, context = this.context) {
+    winstonLogger.log({ level: 'info', message, context })
+    super.log(message, context)
   }
 
-  verbose(message: string) {
-    if (!this.context) return
-    winstonLogger.log({ level: 'verbose', message, context: this.context })
+  verbose(message: string, context = this.context) {
+    winstonLogger.log({ level: 'verbose', message, context })
+    super.verbose(message, context)
   }
 
-  debug(message: string) {
-    if (!this.context) return
-    winstonLogger.log({ level: 'debug', message, context: this.context })
+  debug(message: string, context = this.context) {
+    winstonLogger.log({ level: 'debug', message, context })
+    super.debug(message, context)
   }
 }

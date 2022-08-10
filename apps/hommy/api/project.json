@@ -14,7 +14,7 @@
           {
             "name": "@nestjs/graphql/plugin",
             "options": {
-              "typeFileNameSuffix": [".model.ts"],
+              "typeFileNameSuffix": [".model.ts", ".resolver.ts", ".args.ts"],
               "introspectComments": true
             }
           }

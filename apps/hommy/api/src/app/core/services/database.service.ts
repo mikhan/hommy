@@ -1,4 +1,8 @@
-import { INestApplication, Injectable, OnModuleInit } from '@nestjs/common'
+import {
+  INestApplicationContext,
+  Injectable,
+  OnModuleInit,
+} from '@nestjs/common'
 import { Prisma, PrismaClient } from '@prisma/client'
 import { DATABASE_LOGGER } from '../constants/database-logger'
 
@@ -45,18 +49,29 @@ export class DatabaseService
   async onModuleInit() {
     await this.$connect()
 
+    // this.$use(async (params, next) => {
+    //   const before = Date.now()
+    //   const result = await next(params)
+    //   const after = Date.now()
+    //   const duration = after - before
+    //   const log = `Query ${params.model}.${params.action} (${duration}ms)`
+    //   DATABASE_LOGGER.debug(log)
+
+    //   return result
+    // })
+
     this.$on('query', (event) => this.logQuery(event))
     this.$on('info', (event) => this.logInfo(event))
     this.$on('warn', (event) => this.logWarn(event))
     this.$on('error', (event) => this.logError(event))
   }
 
-  async enableShutdownHooks(app: INestApplication) {
+  async enableShutdownHooks(app: INestApplicationContext) {
     this.$on('beforeExit', async () => await app.close())
   }
 
   private logQuery(event: Prisma.QueryEvent) {
-    DATABASE_LOGGER.verbose(getQueryFromEvent(event))
+    DATABASE_LOGGER.debug(getQueryFromEvent(event))
   }
 
   private logInfo(event: Prisma.LogEvent) {

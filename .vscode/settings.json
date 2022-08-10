@@ -14,7 +14,17 @@
     "yarn.lock": true,
     ".logs/**": true
   },
-  "files.exclude": {},
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "dist": true,
+    ".yarn": true,
+    ".github": true
+  },
   "prettier.prettierPath": "node_modules/prettier/index.js",
   "sqltools.connections": [
     {
@@ -33,5 +43,6 @@
     "*.controller.ts": "${capture}.controller.*",
     "*.widget.ts": "${capture}.widget.*",
     "*.page.ts": "${capture}.page.*"
-  }
+  },
+  "explorerExclude.backup": {}
 }

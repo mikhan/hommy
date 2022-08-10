@@ -1,26 +1,22 @@
 import { exit } from 'process'
 import { ValidationPipe } from '@nestjs/common'
 import { NestFactory } from '@nestjs/core'
+import { graphqlUploadExpress } from 'graphql-upload'
 import { AppModule } from './app/app.module'
-import { AppLogger } from './app/core/classes/logger'
 import { CORE_LOGGER } from './app/core/constants/core-logger'
-import { ENVIRONMENT } from './app/core/constants/environment'
 import { DatabaseService } from './app/core/services/database.service'
-import { Environment } from './environments/environment'
+import { environment } from './environments/environment'
 
 async function bootstrap() {
-  console.clear()
-
-  const module = AppModule.register({ environment: Environment.init() })
-  const app = await NestFactory.create(module, { bufferLogs: true })
-  const environment = app.get<Environment>(ENVIRONMENT)
-
-  app.useLogger(app.get(AppLogger))
+  const module = AppModule.create({ environment })
+  const app = await NestFactory.create(module, { logger: CORE_LOGGER })
 
   const databaseService = app.get(DatabaseService)
   await databaseService.enableShutdownHooks(app)
 
   app.enableCors()
+
+  app.use(graphqlUploadExpress({ maxFileSize: 1000000, maxFiles: 10 }))
 
   const apiPrefix = environment.API_PREFIX
   const apiRestPrefix = environment.API_REST_PREFIX
@@ -28,11 +24,11 @@ async function bootstrap() {
 
   app.useGlobalPipes(new ValidationPipe())
 
-  const serverHostname = environment.SERVER_HOSTNAME
-  const serverPort = environment.SERVER_PORT
-  await app.listen(serverPort, serverHostname)
+  const apiServerHostname = environment.API_SERVER_HOSTNAME
+  const apiServerPort = environment.API_SERVER_PORT
+  await app.listen(apiServerPort, apiServerHostname)
 
-  const apiBase = `http://${serverHostname}:${serverPort}${apiPrefix}${apiRestPrefix}`
+  const apiBase = `http://${apiServerHostname}:${apiServerPort}${apiPrefix}${apiRestPrefix}`
   CORE_LOGGER.log(`🚀 Application is up on: ${apiBase}`)
 }
 

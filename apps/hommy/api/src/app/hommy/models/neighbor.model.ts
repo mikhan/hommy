@@ -1,24 +1,26 @@
-import { Field, Int, ObjectType } from '@nestjs/graphql'
+import { Field, ID, ObjectType } from '@nestjs/graphql'
+import GraphQLJSON from 'graphql-type-json'
 import { ProjectScoped } from '../../core/dto/project-scope.args'
-import { Profile } from './profile.model'
+import { ProfileModel } from './profile.model'
 
-@ObjectType()
-export class Neighbor extends ProjectScoped {
-  @Field(() => Int)
+@ObjectType('Neighbor')
+export class NeighborModel extends ProjectScoped {
+  @Field(() => ID)
   id!: number
 
-  @Field(() => Int)
   workspaceId!: number
 
-  @Field(() => Int)
   projectId!: number
 
-  @Field()
   name!: string
 
-  @Field(() => Int)
+  @Field(() => ID)
   profileId!: number
 
-  @Field(() => Profile)
-  profile!: Profile
+  profile!: ProfileModel
+
+  capturedDate?: Date
+
+  @Field(() => GraphQLJSON)
+  json?: JSON
 }

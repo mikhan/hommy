@@ -2,7 +2,8 @@ version: '3.8'
 
 services:
   app:
-    build: 
+    container_name: decet_app
+    build:
       context: .
       dockerfile: Dockerfile
       args:
@@ -13,7 +14,7 @@ services:
 
     volumes:
       - ..:/workspace:cached
-      
+
     # Overrides default command so things don't shut down after the process ends.
     command: sleep infinity
 
@@ -23,14 +24,15 @@ services:
     # Uncomment the next line to use a non-root user for all processes.
     # user: node
 
-    # Use "forwardPorts" in **devcontainer.json** to forward an app port locally. 
+    # Use "forwardPorts" in **devcontainer.json** to forward an app port locally.
     # (Adding the "ports" property to this file will not forward from a Codespace.)
 
   db:
-    image: postgres:latest
+    container_name: decet_database
+    image: postgres:14.4-alpine
     restart: unless-stopped
     volumes:
-      - postgres-data:/var/lib/postgresql/data
+      - postgresql_data:/var/lib/postgresql/data
     environment:
       POSTGRES_PASSWORD: postgres
       POSTGRES_USER: postgres
@@ -39,5 +41,13 @@ services:
     # Add "forwardPorts": ["5432"] to **devcontainer.json** to forward PostgreSQL locally.
     # (Adding the "ports" property to this file will not forward from a Codespace.)
 
+  cache:
+    container_name: decet_cache
+    image: redis/redis-stack:7.0.0-RC6
+    restart: unless-stopped
+    volumes:
+      - redis_data:/data
+
 volumes:
-  postgres-data:
+  postgresql_data:
+  redis_data:

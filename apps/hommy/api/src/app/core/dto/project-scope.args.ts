@@ -1,12 +1,12 @@
-import { Field, ArgsType, InputType, InterfaceType, Int } from '@nestjs/graphql'
+import { Field, ArgsType, InputType, InterfaceType, ID } from '@nestjs/graphql'
 
 @ArgsType()
 @InputType()
 @InterfaceType()
 export class ProjectScoped {
-  @Field(() => Int)
+  @Field(() => ID)
   workspaceId!: number
 
-  @Field(() => Int)
+  @Field(() => ID)
   projectId!: number
 }

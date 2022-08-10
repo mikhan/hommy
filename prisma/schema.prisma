@@ -1,5 +1,6 @@
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
+  previewFeatures = ["interactiveTransactions"]
 }
 
 datasource db {
@@ -7,19 +8,49 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-enum GenderEnum {
-  MALE
-  FEMALE
+enum Gender {
+  MALE   @map("male")
+  FEMALE @map("female")
 }
 
-enum CredentialTypeEnum {
-  PASSWORD
+enum CredentialType {
+  PASSWORD @map("password")
+}
+
+enum EstadoCargo {
+  PENDIENTE  @map("pendiente")
+  COMPLETADO @map("completado")
+}
+
+enum Naturaleza {
+  CARGO @map("cargo")
+  ABONO @map("abono")
+}
+
+model CatalogoPais {
+  id          Int    @id @default(autoincrement())
+  description String @db.VarChar(128)
+}
+
+model CatalogoTipoCargo {
+  id          Int     @id @default(autoincrement())
+  description String? @db.VarChar(128)
+}
+
+model CatalogoTipoLote {
+  id          Int    @id @default(autoincrement())
+  description String @db.VarChar(128)
+}
+
+model CatalogoTipoPublicacion {
+  id          Int    @id @default(autoincrement())
+  description String @db.VarChar(128)
 }
 
 model Credential {
   userId         Int
-  user           User               @relation(fields: [userId], references: [id])
-  credentialType CredentialTypeEnum
+  user           User           @relation(fields: [userId], references: [id])
+  credentialType CredentialType
   username       String
   payload        Json
 
@@ -34,7 +65,7 @@ model Neighbor {
   profile      Profile   @relation(fields: [profileId], references: [id])
   profileId    Int       @unique
   // Metadata
-  capturedDate DateTime  @default(now()) @db.Timestamp(0)
+  capturedDate DateTime  @default(now())
   capturedById Int
   modifiedDate DateTime?
   modifiedById Int?
@@ -54,7 +85,7 @@ model User {
   workspaces    Workspace[]
   ownWorkspaces Workspace[]  @relation("owner")
   // Metadata
-  capturedDate  DateTime     @default(now()) @db.Timestamp(0)
+  capturedDate  DateTime     @default(now())
   capturedBy    User         @relation("capturedBy", fields: [capturedById], references: [id])
   capturedById  Int
   modifiedDate  DateTime?
@@ -69,11 +100,11 @@ model User {
 }
 
 model Profile {
-  id       Int         @id @default(autoincrement())
-  name     String      @db.VarChar(128)
-  lastname String      @db.VarChar(128)
+  id       Int       @id @default(autoincrement())
+  name     String    @db.VarChar(128)
+  lastname String    @db.VarChar(128)
   age      Int?
-  gender   GenderEnum?
+  gender   Gender?
   user     User?
   neighbor Neighbor?
 }

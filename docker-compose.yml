@@ -6,10 +6,24 @@ services:
     container_name: hommy_database
     restart: unless-stopped
     volumes:
-      - ./node_modules/.postgresql/data:/var/lib/postgresql/data
+      - postgresql_data:/var/lib/postgresql/data
     environment:
       POSTGRES_PASSWORD: postgres
       POSTGRES_USER: postgres
       POSTGRES_DB: postgres
     ports:
       - '5432:5432'
+
+  cache:
+    image: redis/redis-stack:7.0.0-RC6
+    container_name: hommy_cache
+    restart: unless-stopped
+    volumes:
+      - redis_data:/data
+    ports:
+      - '6379:6379'
+      - '8001:8001'
+
+volumes:
+  postgresql_data:
+  redis_data:

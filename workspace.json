@@ -2,6 +2,8 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
+    "common-shared": "libs/common/shared",
+    "core-server": "libs/core/server",
     "hommy-api": "apps/hommy/api"
   }
 }

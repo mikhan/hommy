@@ -1,24 +1,25 @@
 import { CustomScalar, Scalar } from '@nestjs/graphql'
+import { UserInputError } from 'apollo-server-core'
 import { Kind, ValueNode } from 'graphql'
 
 @Scalar('Date', () => Date)
-export class DateScalar implements CustomScalar<number, Date | null> {
-  description = 'Date custom scalar type'
+export class DateScalar implements CustomScalar<string, Date | null> {
+  description = 'The `Date` scalar type represents a javascript Date object.'
 
   parseValue(value: unknown): Date {
-    if (!(typeof value === 'number')) {
-      throw new TypeError(`Value must be a number`)
+    if (!(typeof value === 'string')) {
+      throw new UserInputError(`Value must be a string`)
     }
 
     return new Date(value)
   }
 
-  serialize(value: unknown): number {
+  serialize(value: unknown): string {
     if (!(value instanceof Date)) {
-      throw new TypeError(`Value must be instance of Date object`)
+      throw new UserInputError(`Value must be instance of Date object`)
     }
 
-    return value.getTime()
+    return value.toJSON()
   }
 
   parseLiteral(ast: ValueNode): Date | null {

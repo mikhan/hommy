@@ -1,20 +1,16 @@
-import { Field, Int, ObjectType } from '@nestjs/graphql'
-import { Gender } from '../interfaces/gender'
+import { Field, ID, ObjectType } from '@nestjs/graphql'
+import { GenderEnum } from './gender-enum.model'
 
-@ObjectType()
-export class Profile {
-  @Field(() => Int)
+@ObjectType('Profile')
+export class ProfileModel {
+  @Field(() => ID)
   id!: number
 
-  @Field()
   name!: string
 
-  @Field()
   lastname!: string
 
-  @Field(() => Int)
   age?: number
 
-  @Field(() => Gender)
-  gender?: Gender
+  gender?: GenderEnum
 }

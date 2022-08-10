@@ -9,20 +9,33 @@ input CreateNeighborInput {
   name: String!
 }
 
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
 enum Gender {
   FEMALE
   MALE
 }
 
+"""
+The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+"""
+scalar JSON
+
 type Mutation {
-  addNeighbor(input: CreateNeighborInput!, projectId: Int!, workspaceId: Int!): Neighbor!
+  createNeighbor(input: CreateNeighborInput!, projectId: ID!, workspaceId: ID!): Neighbor!
+  uploadFile(file: Upload!): Boolean!
 }
 
 type Neighbor {
-  id: Int!
+  capturedDate: DateTime
+  id: ID!
+  json: JSON
   name: String!
   profile: Profile!
-  profileId: Int!
+  profileId: ID!
   projectId: Int!
   workspaceId: Int!
 }
@@ -30,12 +43,15 @@ type Neighbor {
 type Profile {
   age: Int
   gender: Gender
-  id: Int!
+  id: ID!
   lastname: String!
   name: String!
 }
 
 type Query {
-  residente(id: Int!, skip: Int = 0, take: Int = 25): Neighbor!
-  residentes(projectId: Int!, workspaceId: Int!): [Neighbor!]!
+  getNeighbor(id: ID!): Neighbor!
+  getNeighbors(cursor: ID, projectId: ID!, take: Int = 20, workspaceId: ID!): [Neighbor!]!
 }
+
+"""The `Upload` scalar type represents a file upload."""
+scalar Upload
