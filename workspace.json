@@ -2,8 +2,13 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
+    "auth-api": "apps/auth/api",
+    "auth-app": "apps/auth/app",
     "common-shared": "libs/common/shared",
     "core-server": "libs/core/server",
-    "hommy-api": "apps/hommy/api"
+    "hommy-api": "apps/hommy/api",
+    "hommy-app": "apps/hommy/app",
+    "host-api": "apps/host/api",
+    "host-app": "apps/host/app"
   }
 }

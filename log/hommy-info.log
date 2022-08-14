@@ -1,0 +1,16 @@
+{"context":"NestFactory","level":"info","message":"Starting Nest application...","timestamp":"2022-08-13T21:25:15.690Z"}
+{"context":"InstanceLoader","level":"info","message":"DatabaseModule dependencies initialized","timestamp":"2022-08-13T21:25:15.761Z"}
+{"context":"InstanceLoader","level":"info","message":"CoreModule dependencies initialized","timestamp":"2022-08-13T21:25:15.762Z"}
+{"context":"InstanceLoader","level":"info","message":"AppModule dependencies initialized","timestamp":"2022-08-13T21:25:15.763Z"}
+{"context":"InstanceLoader","level":"info","message":"CoreModule dependencies initialized","timestamp":"2022-08-13T21:25:15.764Z"}
+{"context":"InstanceLoader","level":"info","message":"HommyModule dependencies initialized","timestamp":"2022-08-13T21:25:15.765Z"}
+{"context":"InstanceLoader","level":"info","message":"SessionModule dependencies initialized","timestamp":"2022-08-13T21:25:15.765Z"}
+{"context":"InstanceLoader","level":"info","message":"GraphQLSchemaBuilderModule dependencies initialized","timestamp":"2022-08-13T21:25:15.766Z"}
+{"context":"InstanceLoader","level":"info","message":"GraphQLModule dependencies initialized","timestamp":"2022-08-13T21:25:15.767Z"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/hommy/api}:","timestamp":"2022-08-13T21:25:15.775Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/hommy/api, GET} route","timestamp":"2022-08-13T21:25:15.778Z"}
+{"context":"RoutesResolver","level":"info","message":"SessionController {/hommy/api/session}:","timestamp":"2022-08-13T21:25:15.779Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/hommy/api/session, GET} route","timestamp":"2022-08-13T21:25:15.780Z"}
+{"context":"GraphQLModule","level":"info","message":"Mapped {/hommy/graphql, POST} route","timestamp":"2022-08-13T21:25:15.918Z"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started","timestamp":"2022-08-13T21:25:15.983Z"}
+{"context":"Core","level":"info","message":"🚀 Application is up on: http://0.0.0.0:3001/hommy/api","timestamp":"2022-08-13T21:25:15.986Z"}

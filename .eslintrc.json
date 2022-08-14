@@ -13,8 +13,32 @@
             "allow": [],
             "depConstraints": [
               {
-                "sourceTag": "*",
-                "onlyDependOnLibsWithTags": ["*"]
+                "sourceTag": "type:app",
+                "onlyDependOnLibsWithTags": ["type:app"]
+              },
+              {
+                "sourceTag": "type:lib",
+                "onlyDependOnLibsWithTags": ["type:lib"]
+              },
+              {
+                "sourceTag": "target:browser",
+                "onlyDependOnLibsWithTags": ["target:browser", "target:any"]
+              },
+              {
+                "sourceTag": "target:server",
+                "onlyDependOnLibsWithTags": ["target:server", "target:any"]
+              },
+              {
+                "sourceTag": "scope:auth",
+                "onlyDependOnLibsWithTags": ["scope:auth", "scope:shared"]
+              },
+              {
+                "sourceTag": "scope:hommy",
+                "onlyDependOnLibsWithTags": ["scope:hommy", "scope:shared"]
+              },
+              {
+                "sourceTag": "scope:shared",
+                "onlyDependOnLibsWithTags": ["scope:shared"]
               }
             ]
           }
@@ -27,7 +51,10 @@
       "parserOptions": { "project": "./tsconfig.*?.json" },
       "settings": {
         "import/extensions": [".ts", ".d.ts"],
-        "import/external-module-folders": ["node_modules", "node_modules/@types"],
+        "import/external-module-folders": [
+          "node_modules",
+          "node_modules/@types"
+        ],
         "import/parsers": {
           "@typescript-eslint/parser": [".ts", ".d.ts"]
         },
@@ -57,7 +84,10 @@
         "@typescript-eslint/no-unused-vars": ["off"],
         // Static analysis
         "import/no-self-import": ["error"],
-        "import/no-useless-path-segments": ["error", { "noUselessIndex": true }],
+        "import/no-useless-path-segments": [
+          "error",
+          { "noUselessIndex": true }
+        ],
         // Helpful warnings
         "import/export": ["error"],
         "import/no-named-as-default": ["warn"],
@@ -74,7 +104,17 @@
         "import/order": [
           "warn",
           {
-            "groups": ["builtin", "external", "internal", "unknown", "parent", "sibling", "index", "object", "type"],
+            "groups": [
+              "builtin",
+              "external",
+              "internal",
+              "unknown",
+              "parent",
+              "sibling",
+              "index",
+              "object",
+              "type"
+            ],
             "newlines-between": "never",
             "alphabetize": { "order": "asc", "caseInsensitive": true },
             "pathGroups": [

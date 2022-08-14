@@ -21,7 +21,6 @@
     "**/CVS": true,
     "**/.DS_Store": true,
     "**/Thumbs.db": true,
-    "dist": true,
     ".yarn": true,
     ".github": true
   },
@@ -44,5 +43,7 @@
     "*.widget.ts": "${capture}.widget.*",
     "*.page.ts": "${capture}.page.*"
   },
-  "explorerExclude.backup": {}
+  "explorerExclude.backup": {},
+  "eslint.packageManager": "pnpm",
+  "npm.packageManager": "pnpm"
 }

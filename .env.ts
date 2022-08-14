@@ -67,6 +67,18 @@ class Environment {
   public readonly DATABASE_URL!: string
 
   /**
+   * Log directory
+   */
+  @IsString()
+  public readonly LOG_DIRECTORY!: string
+
+  /**
+   * Prefix to append to log files
+   */
+  @IsString()
+  public readonly LOG_PREFIX!: string
+
+  /**
    * Redis url connection
    */
   @Matches(connectionUrl)

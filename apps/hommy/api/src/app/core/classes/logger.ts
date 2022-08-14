@@ -1,24 +1,24 @@
+import { join } from 'node:path'
 import { ConsoleLogger, ConsoleLoggerOptions } from '@nestjs/common'
 import * as winston from 'winston'
+import { environment } from '../../../environments/environment'
 
-const fileFormat = winston.format.combine(
-  winston.format.timestamp(),
-  winston.format.json(),
-)
+function createTransportFile(level: string) {
+  const directory = environment.LOG_DIRECTORY
+  const prefix = environment.LOG_PREFIX
+  const name = (prefix ? prefix + '-' : '') + level + '.log'
+  const filename = join(process.cwd(), directory, name)
+
+  return new winston.transports.File({ level, filename })
+}
 
 const winstonLogger = winston.createLogger({
   level: 'debug',
-  format: fileFormat,
-  transports: [
-    new winston.transports.File({
-      level: 'error',
-      filename: 'error.log',
-    }),
-    new winston.transports.File({
-      level: 'info',
-      filename: 'combined.log',
-    }),
-  ],
+  format: winston.format.combine(
+    winston.format.timestamp(),
+    winston.format.json(),
+  ),
+  transports: [createTransportFile('error'), createTransportFile('info')],
 })
 
 export class AppLogger extends ConsoleLogger {
