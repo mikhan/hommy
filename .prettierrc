@@ -4,6 +4,8 @@
   "singleQuote": true,
   "quoteProps": "consistent",
   "semi": false,
+  "printWidth": 120,
   "arrowParens": "always",
-  "trailingComma": "all"
+  "trailingComma": "all",
+  "endOfLine": "lf"
 }

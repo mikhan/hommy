@@ -1,0 +1,82 @@
+{
+  "projectType": "application",
+  "sourceRoot": "apps/core/theme/src",
+  "prefix": "hommy",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/core/theme",
+        "index": "apps/core/theme/src/index.html",
+        "main": "apps/core/theme/src/main.ts",
+        "polyfills": "apps/core/theme/src/polyfills.ts",
+        "tsConfig": "apps/core/theme/tsconfig.app.json",
+        "assets": ["apps/core/theme/src/favicon.ico", "apps/core/theme/src/assets"],
+        "styles": ["apps/core/theme/src/styles.scss"],
+        "stylePreprocessorOptions": {
+          "includePaths": ["libs/core/browser/src/lib/theme"]
+        },
+        "scripts": [],
+        "allowedCommonJsDependencies": ["chroma-js", "validator"]
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/core/theme/src/environments/environment.ts",
+              "with": "apps/core/theme/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "core-theme:build:production"
+        },
+        "development": {
+          "browserTarget": "core-theme:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "core-theme:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["apps/core/theme/**/*.ts", "apps/core/theme/**/*.html"]
+      }
+    }
+  },
+  "tags": ["type:app", "scope:core", "target:browser"]
+}

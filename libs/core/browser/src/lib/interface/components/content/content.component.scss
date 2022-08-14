@@ -1,0 +1,24 @@
+:host {
+  --content-padding: minmax(var(--layout-content-padding, 0), 1fr);
+  --content-width: minmax(0, calc(var(--layout-content-width, 100%)));
+  display: grid;
+  grid-template-columns: var(--content-padding) var(--content-width) var(--content-padding);
+  align-items: start;
+
+  ::ng-deep > * {
+    grid-column: 2 / -2;
+  }
+
+  ::ng-deep > .fullbleed {
+    grid-column: 1 / -1;
+  }
+}
+
+::ng-deep :root {
+  --layout-content-padding: theme('padding.2');
+  --layout-content-width: theme('screens.xl');
+
+  @screen sm {
+    --layout-content-padding: theme('padding.6');
+  }
+}

@@ -13,10 +13,7 @@
         "polyfills": "apps/hommy/app/src/polyfills.ts",
         "tsConfig": "apps/hommy/app/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
-        "assets": [
-          "apps/hommy/app/src/favicon.ico",
-          "apps/hommy/app/src/assets"
-        ],
+        "assets": ["apps/hommy/app/src/favicon.ico", "apps/hommy/app/src/assets"],
         "styles": ["apps/hommy/app/src/styles.scss"],
         "scripts": [],
         "customWebpackConfig": {
@@ -86,10 +83,7 @@
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
-        "lintFilePatterns": [
-          "apps/hommy/app/**/*.ts",
-          "apps/hommy/app/**/*.html"
-        ]
+        "lintFilePatterns": ["apps/hommy/app/**/*.ts", "apps/hommy/app/**/*.html"]
       }
     },
     "serve-static": {

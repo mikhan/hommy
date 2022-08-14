@@ -1,0 +1,32 @@
+.mat-menu-panel {
+  background: theme('colors.neutral.300');
+  box-shadow: theme('boxShadow.lg');
+  border: 1px solid theme('colors.neutral.200');
+}
+
+.mat-menu-item {
+  background: transparent;
+  color: theme('colors.neutral.900');
+
+  &[disabled] {
+    &,
+    .mat-menu-submenu-icon,
+    .mat-icon-no-color {
+      color: theme('colors.neutral.700');
+    }
+  }
+}
+
+.mat-menu-item .mat-icon-no-color,
+.mat-menu-submenu-icon {
+  color: theme('colors.neutral.700');
+}
+
+.mat-menu-item:hover,
+.mat-menu-item.cdk-program-focused,
+.mat-menu-item.cdk-keyboard-focused,
+.mat-menu-item-highlighted {
+  &:not([disabled]) {
+    background: rgba(255, 255, 255, 0.1);
+  }
+}

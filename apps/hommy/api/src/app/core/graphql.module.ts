@@ -10,10 +10,7 @@ import {
 import GraphQLJSON from 'graphql-type-json'
 import { GraphQLUpload } from 'graphql-upload'
 import { CoreModule } from './core.module'
-import {
-  upperDirective,
-  upperDirectiveTransformer,
-} from './directives/upercase.directive'
+import { upperDirective, upperDirectiveTransformer } from './directives/upercase.directive'
 import { ComplexityPlugin } from './plugins/complexity.plugin'
 import { LoggingPlugin } from './plugins/logging.plugin'
 import { IdScalar } from './scalars/id.scalar'

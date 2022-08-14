@@ -1,0 +1,17 @@
+/**
+ * @param {Object.<string, string | Object.<string, string>>} colors
+ * @returns {Object.<string, string>}
+ */
+const flattenColorPalette = (colors) =>
+  Object.assign(
+    {},
+    ...Object.entries(colors ?? {}).flatMap(([color, values]) =>
+      typeof values == 'object'
+        ? Object.entries(flattenColorPalette(values)).map(([number, hex]) => ({
+            [color + (number === 'DEFAULT' ? '' : `-${number}`)]: hex,
+          }))
+        : [{ [`${color}`]: values }],
+    ),
+  )
+
+module.exports = { flattenColorPalette }

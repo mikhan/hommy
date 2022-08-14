@@ -1,0 +1,182 @@
+import { AfterContentInit, ChangeDetectionStrategy, Component, ElementRef, NgModule, OnDestroy } from '@angular/core'
+import { Subject, takeUntil, tap } from 'rxjs'
+import { CSSProperties } from '../../directives/css-properties.directive'
+import { ResizeObserveService } from '../../services/resize-observe.service'
+
+@Component({
+  selector: 'ui-grid',
+  templateUrl: './grid.component.html',
+  styleUrls: ['./grid.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class GridComponent implements AfterContentInit, OnDestroy {
+  private properties = new CSSProperties(this.elementRef)
+
+  private onDestroy$ = new Subject()
+
+  private resizeObserver = this.resizeObserverService.observe(this.elementRef).pipe(
+    takeUntil(this.onDestroy$),
+    tap(() => {
+      this.properties.set('layoutColumns', null)
+
+      const columns = window
+        .getComputedStyle(this.elementRef.nativeElement)
+        .getPropertyValue(`grid-template-columns`)
+        .split(' ')
+        .map((value) => parseInt(value))
+        .filter((value) => value > 0)
+
+      this.properties.set('layoutColumns', columns.length)
+    }),
+  )
+
+  constructor(private elementRef: ElementRef, private resizeObserverService: ResizeObserveService) {}
+
+  public ngAfterContentInit() {
+    this.resizeObserver.subscribe()
+  }
+
+  public ngOnDestroy() {
+    this.onDestroy$.next(null)
+  }
+}
+
+@NgModule({
+  imports: [],
+  declarations: [GridComponent],
+  exports: [GridComponent],
+})
+export class GridComponentModule {}
+
+// interface GridStyle {
+//   layoutWidth: string
+//   layoutHeight: string
+//   layoutColumns: number
+//   layoutRows: number
+//   colMinWidth: string
+//   colMaxWidth: string
+//   colGap: string
+//   rowMinHeight: string
+//   rowMaxHeight: string
+//   rowGap: string
+//   alignContent: string
+//   justifyContent: string
+// }
+
+// export class GridComponent implements AfterContentInit, OnDestroy {
+//   @Input()
+//   public set colWidth(value: string | string[]) {
+//     const values = Array.isArray(value) ? value : value.trim().split(/ +/)
+//     if (values.length === 0) return
+
+//     console.log(values[0], values[1] ?? values[0], values[1] || values[0])
+//     this.properties.set('colMinWidth', values[0])
+//     this.properties.set('colMaxWidth', values[1] || values[0])
+//   }
+
+//   @Input()
+//   public set rowHeight(value: string | string[]) {
+//     const values = Array.isArray(value) ? value : value.trim().split(/ +/)
+//     if (values.length === 0) return
+
+//     this.properties.set('rowMinHeight', values[0])
+//     this.properties.set('rowMaxHeight', values[1] || values[0])
+//   }
+
+//   @Input() public set gap(value: string | string[]) {
+//     const values = Array.isArray(value) ? value : value.trim().split(/ +/)
+//     if (values.length === 0) return
+
+//     this.properties.set('colGap', values[0])
+//     this.properties.set('rowGap', values[1] || values[0])
+//   }
+
+//   @Input() public set align(value: string) {
+//     this.properties.set('alignContent', value)
+//   }
+
+//   @Input() public set justify(value: string) {
+//     this.properties.set('justifyContent', value)
+//   }
+
+//   private properties: { set: <T extends keyof GridStyle>(prop: T, value: GridStyle[T] | null) => void }
+
+//   private onDestroy$ = new Subject()
+
+//   constructor(private elementRef: ElementRef, private resizeObserverService: ResizeObserveService) {
+//     this.properties = new CSSProperties(this.elementRef)
+//   }
+
+//   public ngAfterContentInit() {
+//     this.resizeObserverService
+//       .observe(this.elementRef)
+//       .pipe(takeUntil(this.onDestroy$))
+//       .subscribe(([{ target, contentRect }]) => {
+//         const columns = this.getColumns(target, 'Columns')
+//         this.properties.set('layoutColumns', columns.length)
+
+//         const rows = this.getColumns(target, 'Rows')
+//         this.properties.set('layoutRows', rows.length)
+
+//         this.properties.set('layoutWidth', contentRect.width + 'px')
+//         this.properties.set('layoutHeight', contentRect.height + 'px')
+//       })
+//   }
+
+//   public ngOnDestroy() {
+//     this.onDestroy$.next(null)
+//   }
+
+//   private getColumns(target: Element, prop: 'Columns' | 'Rows') {
+//     this.properties.set(`layout${prop}`, null)
+
+//     return parseGridTemplate(window.getComputedStyle(target).getPropertyValue(`grid-template-${prop.toLowerCase()}`))
+//   }
+// }
+
+
+///////////////////////////////////////////////////
+// $colMinWidth: 16rem;
+// $colMaxWidth: 1fr;
+// $colGap: 1rem;
+// $rowMinHeight: 16rem;
+// $rowMaxHeight: 1fr;
+// $rowGap: 1rem;
+// $fillColumn: auto-fit;
+// $justifyContent: start;
+// $alignContent: start;
+
+:host {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(var(--ui-grid-column-size), 1fr));
+  gap: var(--ui-grid-column-gap);
+  // grid-template-columns: repeat(
+  //   var(--fill-column, $fillColumn),
+  //   minmax(var(--col-min-width, $colMinWidth), var(--col-max-width, $colMaxWidth))
+  // );
+  // grid-auto-rows: minmax(var(--row-min-height, $rowMinHeight), var(--row-max-height, $rowMaxHeight));
+  // column-gap: var(--col-gap, $colGap);
+  // row-gap: var(--row-gap, $rowGap);
+  // justify-content: var(--justify-content, $justifyContent);
+  // align-content: var(--align-content, $alignContent);
+}
+
+:host ::ng-deep {
+  & > .--colspan-full {
+    grid-column: 1 / -1;
+  }
+
+  @for $i from 1 through 12 {
+    & > .--colspan-#{$i} {
+      grid-column-end: span min($i, var(--layout-columns, 1));
+    }
+  }
+
+  @for $i from 1 through 12 {
+    & > .--rowspan-#{$i} {
+      grid-row-end: span $i;
+    }
+  }
+}
+////////////////////////////////////////////////////////
+<ng-content></ng-content>

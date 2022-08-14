@@ -14,10 +14,7 @@ function createTransportFile(level: string) {
 
 const winstonLogger = winston.createLogger({
   level: 'debug',
-  format: winston.format.combine(
-    winston.format.timestamp(),
-    winston.format.json(),
-  ),
+  format: winston.format.combine(winston.format.timestamp(), winston.format.json()),
   transports: [createTransportFile('error'), createTransportFile('info')],
 })
 

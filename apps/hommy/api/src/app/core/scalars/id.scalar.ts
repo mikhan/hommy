@@ -8,8 +8,7 @@ import { NumberObfuscateService } from '../services/number-obfuscate.service'
 @Scalar('ID')
 @Injectable()
 export class IdScalar implements CustomScalar<string, number | null> {
-  description =
-    'The `ID` scalar type represents a obfuscated number id as a 12 character length string.'
+  description = 'The `ID` scalar type represents a obfuscated number id as a 12 character length string.'
 
   constructor(private hashid: NumberObfuscateService) {}
 

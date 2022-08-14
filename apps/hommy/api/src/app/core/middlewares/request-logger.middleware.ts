@@ -10,9 +10,7 @@ export class RequestLoggerMiddleware implements NestMiddleware {
       const { statusCode } = response
       const contentLength = response.get('content-length') ?? '0'
 
-      HTTP_LOGGER.log(
-        `${method} ${url} ${ip} > ${statusCode} (${contentLength} bytes)`,
-      )
+      HTTP_LOGGER.log(`${method} ${url} ${ip} > ${statusCode} (${contentLength} bytes)`)
     })
 
     next()

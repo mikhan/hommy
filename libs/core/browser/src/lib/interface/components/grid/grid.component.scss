@@ -1,0 +1,38 @@
+:host {
+  --col-min-size: 16rem;
+  --col-max-size: 16rem;
+  --col-gap: 1rem;
+  --row-min-size: 16rem;
+  --row-max-size: 16rem;
+  --row-gap: 1rem;
+  --adjust-column: auto-fit;
+  --justify-content: start;
+  --align-content: start;
+
+  display: grid;
+  grid-template-columns: repeat(var(--adjust-column), minmax(var(--col-min-size), var(--col-max-size)));
+  // grid-auto-rows: minmax(var(--row-min-size), var(--row-max-size));
+  column-gap: var(--col-gap);
+  row-gap: var(--row-gap);
+  justify-content: var(--justify-content);
+  align-content: var(--align-content);
+}
+
+:host ::ng-deep {
+  & > [colspan='full'] {
+    grid-column: 1 / -1;
+  }
+
+  @for $i from 1 through 12 {
+    & > [colspan='#{$i}'] {
+      grid-column-end: span min($i, var(--layout-columns, 1));
+    }
+  }
+
+  @for $i from 1 through 12 {
+    & > [rowspan='#{$i}'] {
+      // grid-row-end: span $i;
+      height: calc($i * var(--row-max-size));
+    }
+  }
+}

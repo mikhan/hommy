@@ -1,8 +1,4 @@
-import {
-  INestApplicationContext,
-  Injectable,
-  OnModuleInit,
-} from '@nestjs/common'
+import { INestApplicationContext, Injectable, OnModuleInit } from '@nestjs/common'
 import { Prisma, PrismaClient } from '@prisma/client'
 import { DATABASE_LOGGER } from '../constants/database-logger'
 
@@ -38,10 +34,7 @@ function getQueryFromEvent(event: Prisma.QueryEvent) {
 }
 
 @Injectable()
-export class DatabaseService
-  extends PrismaClient<PrismaClientOptions>
-  implements OnModuleInit
-{
+export class DatabaseService extends PrismaClient<PrismaClientOptions> implements OnModuleInit {
   constructor() {
     super(PrismaClientOptions)
   }

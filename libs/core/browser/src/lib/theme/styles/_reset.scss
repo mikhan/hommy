@@ -1,0 +1,31 @@
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  box-sizing: border-box;
+  height: -webkit-fill-available;
+}
+
+body {
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+  -webkit-font-smoothing: antialiased;
+}
+
+:where(h1, h2, h3, h4, h5, h6) {
+  line-height: calc(1em + 0.5rem);
+  overflow-wrap: break-word;
+}
+
+#app-root *:focus-visible {
+  outline: 1px solid #ffffff66;
+  outline-offset: -1px;
+}

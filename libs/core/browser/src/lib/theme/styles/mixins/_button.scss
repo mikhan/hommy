@@ -1,0 +1,56 @@
+@mixin button($color: currentColor, $opacity: 1, $scale: false, $duration: 100ms) {
+  line-height: theme('spacing.10');
+  padding: 0 theme('spacing.4');
+  border-radius: theme('borderRadius.DEFAULT');
+
+  position: relative;
+  isolation: isolate;
+  cursor: pointer;
+  white-space: nowrap;
+  user-select: none;
+  flex: none;
+
+  &::before,
+  &::after {
+    --scale: 0;
+    --opacity: 0;
+    --duration: #{$duration};
+    --easing: ease-out;
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    transition-duration: var(--duration);
+    transition-timing-function: var(--easing);
+  }
+
+  &::before {
+    background-color: $color;
+    opacity: var(--opacity);
+    transform-origin: center center;
+    transform: if($scale, scale(var(--scale)), '') translateZ(-1px);
+    transition-property: opacity, transform;
+    z-index: -1;
+  }
+
+  &::after {
+    --duration: #{calc($duration / 2)};
+    border: 3px solid currentColor;
+    opacity: 0;
+    transition-property: opacity;
+    z-index: -1;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    &:where(:focus, :hover)::before {
+      --scale: 1;
+      --opacity: #{calc($opacity / 2)};
+      --easing: ease-in;
+    }
+
+    &:active::after {
+      opacity: 0.2;
+      --duration: 100ms;
+    }
+  }
+}

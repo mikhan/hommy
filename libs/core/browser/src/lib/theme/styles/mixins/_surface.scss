@@ -1,0 +1,14 @@
+%surface {
+  background-color: var(--syscolor-canvas);
+  color: var(--syscolor-canvastext);
+
+  &.hoverable:hover {
+  }
+}
+
+@mixin surface($name, $step) {
+  @extend %surface;
+  --syscolor-canvas: var(--#{$name}-#{$step});
+  --syscolor-canvastext: var(--#{$name}-#{$step}-text);
+  @content;
+}

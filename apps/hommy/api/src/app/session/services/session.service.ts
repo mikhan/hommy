@@ -1,9 +1,6 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common'
 import { DatabaseService } from '../../core/services/database.service'
-import {
-  CredentialRequestOptions,
-  isValidCredential,
-} from '../utils/credential'
+import { CredentialRequestOptions, isValidCredential } from '../utils/credential'
 
 @Injectable()
 export class SessionService {
@@ -30,8 +27,6 @@ export class SessionService {
       },
     })
 
-    return credential && isValidCredential(credential, options)
-      ? credential
-      : null
+    return credential && isValidCredential(credential, options) ? credential : null
   }
 }

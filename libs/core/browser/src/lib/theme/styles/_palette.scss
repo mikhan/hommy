@@ -1,0 +1,55 @@
+@use 'sass:color' as color;
+@use 'sass:map' as map;
+@use 'sass:math' as math;
+@use 'utils' as utils;
+
+@function background($base, $shade, $darkMode) {
+  $shade: if($darkMode, $shade * -1, $shade);
+  @return color.scale($base, $lightness: $shade);
+}
+
+@function foreground($base) {
+  $fg: $base;
+  $shade: 0%;
+  @while ($shade < 100% and utils.colour-difference($fg, $base) == 'false') {
+    $shade: $shade + 10%;
+    $light: color.adjust($base, $lightness: $shade);
+    $dark: color.adjust($base, $lightness: $shade * -1);
+    $fg: utils.color-contrast($base, $light, $dark);
+  }
+
+  @return $fg;
+}
+
+$step-names: ('50', '100', '200', '300', '400', '500', '600', '700', '800', '900');
+
+@mixin palette($name, $base, $min, $max, $darkMode: false) {
+  $shade: $min;
+  $step: calc(($max - $min) / 9);
+
+  @each $step-name in $step-names {
+    $bg: background($base, $shade, $darkMode);
+    $fg: foreground($bg);
+
+    --#{$name}-#{$step-name}-bg: #{color.red($bg)} #{color.green($bg)} #{color.blue($bg)};
+    --#{$name}-#{$step-name}-fg: #{color.red($fg)} #{color.green($fg)} #{color.blue($fg)};
+
+    $shade: $shade + $step;
+  }
+}
+
+@mixin base($primary, $secondary, $neutral) {
+  $font-sans: 'Roboto';
+  $colorConfig: (
+    'primary': $primary,
+    'secondary': $secondary,
+    'neutral': $neutral,
+  );
+
+  @each $name, $config in $colorConfig {
+    $base: map.get($config, 'base');
+    $min: map.get($config, 'min');
+    $max: map.get($config, 'max');
+    @include palette($name, $base, $min, $max, false);
+  }
+}

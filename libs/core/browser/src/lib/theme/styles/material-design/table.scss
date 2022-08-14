@@ -1,0 +1,52 @@
+#app-root {
+  .ui-table {
+    padding-top: theme('spacing[1.5]');
+    padding-bottom: theme('spacing[1.5]');
+  }
+
+  .ui-table-row {
+    border: none;
+    min-height: 0;
+    margin: 0;
+    padding: 0 1rem;
+
+    &:nth-child(odd):not(:hover) {
+      overflow: visible;
+
+      &::after {
+        content: '';
+        background-color: theme('colors.neutral.300');
+        position: absolute;
+        height: 1px;
+        top: -1px;
+        left: 0.5rem;
+        right: 0.5rem;
+      }
+    }
+  }
+
+  .ui-table-header {
+    border: none;
+    min-height: 0;
+    margin: 0;
+    padding: 0 1rem;
+
+    &:last-of-type {
+      &::after {
+        content: '';
+        background-color: theme('colors.secondary.200');
+        position: absolute;
+        left: 0.5rem;
+        right: 0.5rem;
+        bottom: -1px;
+        height: 1px;
+      }
+    }
+  }
+
+  .ui-table-cell {
+    margin: 0;
+    padding: 0;
+    overflow: initial;
+  }
+}

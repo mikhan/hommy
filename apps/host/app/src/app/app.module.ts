@@ -17,17 +17,11 @@ import { loadRemoteModule } from '@nrwl/angular/mf'
         },
         {
           path: 'hommy-app',
-          loadChildren: () =>
-            loadRemoteModule('hommy-app', './Module').then(
-              (m) => m.RemoteEntryModule,
-            ),
+          loadChildren: () => loadRemoteModule('hommy-app', './Module').then((m) => m.RemoteEntryModule),
         },
         {
           path: 'auth-app',
-          loadChildren: () =>
-            loadRemoteModule('auth-app', './Module').then(
-              (m) => m.RemoteEntryModule,
-            ),
+          loadChildren: () => loadRemoteModule('auth-app', './Module').then((m) => m.RemoteEntryModule),
         },
       ],
       { initialNavigation: 'enabledBlocking' },

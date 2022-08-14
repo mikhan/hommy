@@ -7,6 +7,7 @@
     "core-browser": "libs/core/browser",
     "core-server": "libs/core/server",
     "core-shared": "libs/core/shared",
+    "core-theme": "apps/core/theme",
     "hommy-api": "apps/hommy/api",
     "hommy-app": "apps/hommy/app",
     "host-api": "apps/host/api",

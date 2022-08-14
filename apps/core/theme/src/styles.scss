@@ -1,0 +1,37 @@
+@use '@fontsource/roboto/scss/mixins' as Roboto;
+@use '@angular/material' as mat;
+@use 'styles/palette' as palette;
+
+@import 'styles/material-design';
+@import 'styles/reset';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@include Roboto.fontFace($weight: 300);
+@include Roboto.fontFace($weight: 400);
+@include Roboto.fontFace($weight: 500);
+
+$primaryConfig: (
+  'base': hsl(227deg 30% 37%),
+  'min': -50%,
+  'max': 40%,
+);
+
+$secondaryConfig: (
+  'base': #25c196,
+  'min': -60%,
+  'max': 10%,
+);
+
+$neutralConfig: (
+  'base': hsl(180deg 9% 25%),
+  'min': -30%,
+  'max': 100%,
+);
+
+:root {
+  color-scheme: dark;
+  @include palette.base($primaryConfig, $secondaryConfig, $neutralConfig);
+}

@@ -8,9 +8,8 @@
       "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/libs/core/shared",
-        "tsConfig": "libs/core/shared/tsconfig.lib.json",
-        "packageJson": "libs/core/shared/package.json",
         "main": "libs/core/shared/src/index.ts",
+        "tsConfig": "libs/core/shared/tsconfig.lib.json",
         "assets": ["libs/core/shared/*.md"]
       }
     },

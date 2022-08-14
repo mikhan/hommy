@@ -1,15 +1,4 @@
-import {
-  Args,
-  ArgsType,
-  Field,
-  ID,
-  InputType,
-  Mutation,
-  Parent,
-  Query,
-  ResolveField,
-  Resolver,
-} from '@nestjs/graphql'
+import { Args, ArgsType, Field, ID, InputType, Mutation, Parent, Query, ResolveField, Resolver } from '@nestjs/graphql'
 import { FileUpload, GraphQLUpload } from 'graphql-upload'
 import { PaginationArgs } from '../../core/dto/pagination.args'
 import { ProjectScoped } from '../../core/dto/project-scope.args'
@@ -44,10 +33,7 @@ export class ResidenteResolver {
   }
 
   @Query(() => [NeighborModel])
-  async getNeighbors(
-    @Args() { workspaceId, projectId }: ProjectScoped,
-    @Args() pagination: PaginationArgs,
-  ) {
+  async getNeighbors(@Args() { workspaceId, projectId }: ProjectScoped, @Args() pagination: PaginationArgs) {
     return this.db.neighbor.findMany({
       where: { workspaceId, projectId },
       cursor: { id: pagination.cursor },

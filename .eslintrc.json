@@ -14,7 +14,7 @@
             "depConstraints": [
               {
                 "sourceTag": "type:app",
-                "onlyDependOnLibsWithTags": ["type:app"]
+                "onlyDependOnLibsWithTags": ["type:app", "type:lib"]
               },
               {
                 "sourceTag": "type:lib",
@@ -22,23 +22,23 @@
               },
               {
                 "sourceTag": "target:browser",
-                "onlyDependOnLibsWithTags": ["target:browser", "target:any"]
+                "onlyDependOnLibsWithTags": ["target:browser", "target:shared"]
               },
               {
                 "sourceTag": "target:server",
-                "onlyDependOnLibsWithTags": ["target:server", "target:any"]
+                "onlyDependOnLibsWithTags": ["target:server", "target:shared"]
               },
               {
                 "sourceTag": "scope:auth",
-                "onlyDependOnLibsWithTags": ["scope:auth", "scope:shared"]
+                "onlyDependOnLibsWithTags": ["scope:auth", "scope:common"]
               },
               {
                 "sourceTag": "scope:hommy",
-                "onlyDependOnLibsWithTags": ["scope:hommy", "scope:shared"]
+                "onlyDependOnLibsWithTags": ["scope:hommy", "scope:common"]
               },
               {
-                "sourceTag": "scope:shared",
-                "onlyDependOnLibsWithTags": ["scope:shared"]
+                "sourceTag": "scope:common",
+                "onlyDependOnLibsWithTags": ["scope:common"]
               }
             ]
           }

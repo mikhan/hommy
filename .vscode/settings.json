@@ -43,7 +43,5 @@
     "*.widget.ts": "${capture}.widget.*",
     "*.page.ts": "${capture}.page.*"
   },
-  "explorerExclude.backup": {},
-  "eslint.packageManager": "pnpm",
-  "npm.packageManager": "pnpm"
+  "explorerExclude.backup": {}
 }

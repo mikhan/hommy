@@ -1,0 +1,45 @@
+@use '../components';
+
+// Canvas: Background of application content or documents.
+// CanvasText: Text in application content or documents.
+// LinkText: Text in non-active, non-visited links. For light backgrounds, traditionally blue.
+// VisitedText: Text in visited links. For light backgrounds, traditionally purple.
+// ActiveText: Text in active links. For light backgrounds, traditionally red.
+// ButtonFace: The face background color for push buttons.
+// ButtonText: Text on push buttons.
+// ButtonBorder: The base border color for push buttons.
+// Field: Background of input fields.
+// FieldText: Text in input fields.
+// Highlight: Background of selected text, for example from ::selection.
+// HighlightText: Text of selected text.
+// SelectedItem: Background of selected items, for example a selected checkbox.
+// SelectedItemText: Text of selected items.
+// Mark: Background of text that has been specially marked (such as by the HTML mark element).
+// MarkText: Text that has been specially marked (such as by the HTML mark element).
+// GrayText:Disabled text. (Often, but not necessarily, gray.)
+
+// @mixin base {
+//   --system-canvas: canvas;
+//   --system-canvastext: canvastext;
+//   --system-graytext: graytext;
+
+//   --system-linktext: linktext;
+//   --system-visitedtext: visitedtext;
+//   --system-activetext: activetext;
+
+//   --system-buttonface: buttonface;
+//   --system-buttontext: buttontext;
+//   --system-buttonborder: buttonborder;
+
+//   --system-field: field;
+//   --system-fieldtext: fieldtext;
+
+//   --system-highlight: highlight;
+//   --system-highlighttext: highlighttext;
+
+//   --system-selecteditem: selecteditem;
+//   --system-selecteditemtext: selecteditemtext;
+
+//   --system-mark: mark;
+//   --system-marktext: marktext;
+// }

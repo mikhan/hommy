@@ -1,0 +1,11 @@
+.mat-button,
+.mat-flat-button,
+.mat-raised-button,
+.mat-fab,
+.mat-mini-fab {
+  text-transform: uppercase;
+
+  &.mat-accent {
+    color: rgb(var(--secondary-600-fg));
+  }
+}

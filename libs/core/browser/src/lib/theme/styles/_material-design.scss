@@ -1,0 +1,139 @@
+@use 'sass:map' as map;
+@use '@angular/material' as mat;
+@use 'styles/palette' as palette;
+// @use 'styles/material-design/button' as button;
+
+@function create-theme($schema, $config) {
+  $background: map.get($config, 'color', 'background');
+  $foreground: map.get($config, 'color', 'foreground');
+  $config: map.deep-remove($config, 'color', 'background');
+  $config: map.deep-remove($config, 'color', 'foreground');
+
+  $theme: if($schema == 'light', mat.define-light-theme($config), mat.define-dark-theme($config));
+  $theme: map.deep-merge(
+    $theme,
+    (
+      'color': (
+        'background': $background,
+      ),
+    )
+  );
+  $theme: map.deep-merge(
+    $theme,
+    (
+      'color': (
+        'foreground': $foreground,
+      ),
+    )
+  );
+
+  @return $theme;
+}
+
+$primary: (
+  50: rgb(var(--primary-50-bg)),
+  100: rgb(var(--primary-100-bg)),
+  200: rgb(var(--primary-200-bg)),
+  300: rgb(var(--primary-300-bg)),
+  400: rgb(var(--primary-400-bg)),
+  500: rgb(var(--primary-500-bg)),
+  600: rgb(var(--primary-600-bg)),
+  700: rgb(var(--primary-700-bg)),
+  800: rgb(var(--primary-800-bg)),
+  900: rgb(var(--primary-900-bg)),
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+  ),
+);
+
+$secondary: (
+  50: rgb(var(--secondary-50-bg)),
+  100: rgb(var(--secondary-100-bg)),
+  200: rgb(var(--secondary-200-bg)),
+  300: rgb(var(--secondary-300-bg)),
+  400: rgb(var(--secondary-400-bg)),
+  500: rgb(var(--secondary-500-bg)),
+  600: rgb(var(--secondary-600-bg)),
+  700: rgb(var(--secondary-700-bg)),
+  800: rgb(var(--secondary-800-bg)),
+  900: rgb(var(--secondary-900-bg)),
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #000000,
+    600: #000000,
+    700: #000000,
+    800: #000000,
+    900: #ffffff,
+  ),
+);
+
+$primaryPalette: mat.define-palette($primary, 600, 900, 300);
+$accentPalette: mat.define-palette($secondary, 500, 900, 300);
+$warnPalette: mat.define-palette(mat.$red-palette, 400);
+
+// $lightTheme: mat.define-dark-theme(
+//   (
+//     color: (
+//       primary: $primaryPalette,
+//       accent: $accentPalette,
+//       warn: $warnPalette,
+//     ),
+//   )
+// );
+$lightTheme: create-theme(
+  'dark',
+  (
+    'color': (
+      'primary': $primaryPalette,
+      'accent': $accentPalette,
+      'warn': $warnPalette,
+      'foreground': (
+        'text': rgb(var(--neutral-200-fg)),
+      ),
+      'background': (
+        'card': rgb(var(--neutral-200-bg)),
+      ),
+    ),
+  )
+);
+
+// @function printKeys($map, $prop) {
+//   @debug '----', $prop;
+//   @each $key, $value in map.get($map, $prop) {
+//     @debug $key, $value; // map.get($key, 'foreground');
+//   }
+//   @return 0;
+// }
+
+// $a: printKeys($lightTheme, 'foreground');
+// $a: printKeys($lightTheme, 'background');
+
+@include mat.core();
+// @include mat.all-component-themes($lightTheme);
+@include mat.core-theme($lightTheme);
+@include mat.checkbox-theme($lightTheme);
+@include mat.button-theme($lightTheme);
+@include mat.menu-theme($lightTheme);
+@include mat.tooltip-theme($lightTheme);
+// @include mat.table-theme($lightTheme);
+// @include button.theme($lightTheme);
+
+// @include mat.strong-focus-indicators();
+// @include mat.strong-focus-indicators-theme($lightTheme);
+
+@import './material-design/button.scss';
+@import './material-design/menu.scss';
+@import './material-design/table.scss';

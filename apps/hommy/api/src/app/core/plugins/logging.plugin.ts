@@ -1,9 +1,6 @@
 import { Plugin } from '@nestjs/apollo'
 import { GraphQLRequestContext, VariableValues } from 'apollo-server-core'
-import {
-  ApolloServerPlugin,
-  GraphQLRequestListener,
-} from 'apollo-server-plugin-base'
+import { ApolloServerPlugin, GraphQLRequestListener } from 'apollo-server-plugin-base'
 import { GRAPHQL_LOGGER } from '../constants/graphql-logger'
 
 function stringifyVariables(variables?: VariableValues) {
@@ -22,9 +19,7 @@ function stringifyVariables(variables?: VariableValues) {
 
 @Plugin()
 export class LoggingPlugin implements ApolloServerPlugin {
-  async requestDidStart(
-    context: GraphQLRequestContext,
-  ): Promise<GraphQLRequestListener | undefined> {
+  async requestDidStart(context: GraphQLRequestContext): Promise<GraphQLRequestListener | undefined> {
     const before = Date.now()
     if (context.request.operationName === 'IntrospectionQuery') return
 
@@ -42,9 +37,7 @@ export class LoggingPlugin implements ApolloServerPlugin {
         const variables = context.request.variables
         const args = stringifyVariables(variables)
 
-        GRAPHQL_LOGGER.log(
-          `${operation} ${operationName}(${args}) (${duration})ms`,
-        )
+        GRAPHQL_LOGGER.log(`${operation} ${operationName}(${args}) (${duration})ms`)
       },
     }
   }

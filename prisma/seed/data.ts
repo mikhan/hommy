@@ -1,15 +1,6 @@
-import {
-  Credential,
-  CredentialType,
-  Gender,
-  Profile,
-  Project,
-  User,
-  Workspace,
-} from '@prisma/client'
+import { Credential, CredentialType, Gender, Profile, Project, User, Workspace } from '@prisma/client'
 
-export interface ProfileSeed
-  extends Pick<Profile, 'name' | 'gender' | 'lastname'> {}
+export interface ProfileSeed extends Pick<Profile, 'name' | 'gender' | 'lastname'> {}
 
 export interface ResidenteSeed {
   profile: ProfileSeed
@@ -23,8 +14,7 @@ export interface WorkspaceSeed extends Pick<Workspace, 'name' | 'namespace'> {
   projects: ProjectSeed[]
 }
 
-export interface CredentialSeed
-  extends Pick<Credential, 'credentialType' | 'username'> {
+export interface CredentialSeed extends Pick<Credential, 'credentialType' | 'username'> {
   password: string
 }
 

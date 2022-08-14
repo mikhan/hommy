@@ -15,9 +15,7 @@ export function hashPassword(password: string, salt: string) {
   return hasher.update(password).digest('hex')
 }
 
-export function assertPasswordCredentialPayload(
-  payload: unknown,
-): asserts payload is { salt: string; hash: string } {
+export function assertPasswordCredentialPayload(payload: unknown): asserts payload is { salt: string; hash: string } {
   if (!(typeof payload === 'object') || payload === null) {
     throw new Error('Invalid credential payload')
   }

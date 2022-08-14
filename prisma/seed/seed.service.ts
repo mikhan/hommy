@@ -1,16 +1,7 @@
 import { Injectable } from '@nestjs/common'
-import {
-  CredentialType,
-  User,
-  Workspace,
-  Project,
-  Gender,
-} from '@prisma/client'
+import { CredentialType, User, Workspace, Project, Gender } from '@prisma/client'
 import { DatabaseService } from '../../apps/hommy/api/src/app/core/services/database.service'
-import {
-  generateSalt,
-  hashPassword,
-} from '../../apps/hommy/api/src/app/session/utils/password-credential'
+import { generateSalt, hashPassword } from '../../apps/hommy/api/src/app/session/utils/password-credential'
 import { Seed } from './data'
 
 @Injectable()
@@ -70,15 +61,7 @@ export class SeedService {
     })
   }
 
-  async createProfile({
-    name,
-    lastname,
-    gender,
-  }: {
-    name: string
-    lastname: string
-    gender: Gender
-  }) {
+  async createProfile({ name, lastname, gender }: { name: string; lastname: string; gender: Gender }) {
     return await this.db.profile.create({
       data: { name, lastname, gender },
     })
@@ -119,15 +102,7 @@ export class SeedService {
     })
   }
 
-  async createWorkspace({
-    name,
-    namespace,
-    user,
-  }: {
-    name: string
-    namespace: string
-    user: User
-  }) {
+  async createWorkspace({ name, namespace, user }: { name: string; namespace: string; user: User }) {
     return await this.db.workspace.upsert({
       where: { namespace },
       update: {},
@@ -140,13 +115,7 @@ export class SeedService {
     })
   }
 
-  async createProject({
-    name,
-    workspace,
-  }: {
-    name: string
-    workspace: Workspace
-  }) {
+  async createProject({ name, workspace }: { name: string; workspace: Workspace }) {
     return await this.db.project.create({
       data: {
         name,

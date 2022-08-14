@@ -1,0 +1,37 @@
+<ui-content class="min-h-screen bg-neutral-50 select-none pb-16" *ngIf="dictionary$ | async as dictionary">
+  <section>
+    <!-- <details class="my-12">
+        <summary class="inline-block cursor-pointer text-3xl">Color</summary>
+        <div class="columns-[10rem] mt-6">
+          <label class="flex gap-2 items-center">
+            <div>Steps</div>
+            <input class="input" type="number" min="2" max="12" formControlName="steps" />
+          </label>
+        </div>
+      </details> -->
+    <core-theme-palette
+      *ngFor="let token of config.color.tokens; index as i; trackBy: getTokenIndexKey"
+      [palette]="dictionary.color[i]"
+      [config]="token"
+      (configChange)="updateColorPalette(token, $event)"
+    ></core-theme-palette>
+    <button type="button" (click)="addColorPalette()">Add palette</button>
+  </section>
+  <div></div>
+  <!-- <pre class="text-sm text-white/60">{{form.status}}</pre> -->
+  <!-- <pre class="text-sm text-white/60">{{form.errors | json}}</pre> -->
+  <!-- <details>
+      <summary>Code</summary>
+      <section class="flex bg-neutral-100 border-2 border-white/20 rounded-lg max-h-96">
+        <div class="flex-1 overflow-y-auto scrollbar-thin p-4">
+          <pre>{{form.value | json}}</pre>
+        </div>
+        <div class="flex-1 overflow-y-auto scrollbar-thin p-4">
+          <pre class="text-sm text-white/60">{{dictionary | json}}</pre>
+        </div>
+      </section>
+    </details> -->
+  <!-- <div class="mt-auto">
+      <button type="reset" (click)="reset()">Reset</button>
+    </div> -->
+</ui-content>

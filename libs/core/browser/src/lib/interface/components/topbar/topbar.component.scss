@@ -1,0 +1,8 @@
+:host {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: stretch;
+  padding-left: var(--layout-content-padding);
+  padding-right: var(--layout-content-padding);
+}

@@ -1,0 +1,10 @@
+:host {
+  display: block;
+  clip-path: circle(50% at center);
+  @apply h-10 w-10;
+
+  & > img {
+    width: 100%;
+    height: 100%;
+  }
+}
