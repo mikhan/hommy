@@ -1,0 +1,42 @@
+{
+  "projectType": "library",
+  "sourceRoot": "libs/core/browser/src",
+  "prefix": "core",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:ng-packagr-lite",
+      "outputs": ["dist/libs/core/browser"],
+      "options": {
+        "project": "libs/core/browser/ng-package.json",
+        "tailwindConfig": "libs/core/browser/tailwind.config.js"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/core/browser/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/core/browser/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/core/browser"],
+      "options": {
+        "jestConfig": "libs/core/browser/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/core/browser/**/*.ts",
+          "libs/core/browser/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

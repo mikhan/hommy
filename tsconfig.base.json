@@ -15,8 +15,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@decet/common-shared": ["libs/common/shared/src/index.ts"],
+      "@decet/core-browser": ["libs/core/browser/src/index.ts"],
       "@decet/core-server": ["libs/core/server/src/index.ts"],
+      "@decet/core-shared": ["libs/core/shared/src/index.ts"],
       "environment": [".env.ts"]
     }
   },

@@ -4,8 +4,9 @@
   "projects": {
     "auth-api": "apps/auth/api",
     "auth-app": "apps/auth/app",
-    "common-shared": "libs/common/shared",
+    "core-browser": "libs/core/browser",
     "core-server": "libs/core/server",
+    "core-shared": "libs/core/shared",
     "hommy-api": "apps/hommy/api",
     "hommy-app": "apps/hommy/app",
     "host-api": "apps/host/api",

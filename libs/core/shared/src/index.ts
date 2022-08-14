@@ -1,3 +1,3 @@
 // @index('./**/*.ts', f => `export * from '${f.path}'`)
-export * from './lib/common-shared.module'
+export * from './lib/core-shared.module'
 // @endindex

@@ -30,5 +30,5 @@
       }
     }
   },
-  "tags": ["type:lib scope:common target:shared"]
+  "tags": ["type:lib", "scope:core", "target:server"]
 }
