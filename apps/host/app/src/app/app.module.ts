@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
-import { AppComponent } from './app.component'
-import { NxWelcomeComponent } from './nx-welcome.component'
 import { RouterModule } from '@angular/router'
 import { loadRemoteModule } from '@nrwl/angular/mf'
+import { AppComponent } from './app.component'
+import { NxWelcomeComponent } from './nx-welcome.component'
 
 @NgModule({
   declarations: [AppComponent, NxWelcomeComponent],
@@ -16,11 +16,11 @@ import { loadRemoteModule } from '@nrwl/angular/mf'
           component: NxWelcomeComponent,
         },
         {
-          path: 'hommy-app',
+          path: 'hommy',
           loadChildren: () => loadRemoteModule('hommy-app', './Module').then((m) => m.RemoteEntryModule),
         },
         {
-          path: 'auth-app',
+          path: 'auth',
           loadChildren: () => loadRemoteModule('auth-app', './Module').then((m) => m.RemoteEntryModule),
         },
       ],

@@ -1,5 +1,5 @@
 import chroma from 'chroma-js'
-import { ColorType } from '@decet/core-shared'
+import { ColorType } from '@decet/kendu-common'
 
 export type RGBValues = { r: number; g: number; b: number }
 export type HSLValues = { h: number; s: number; l: number }

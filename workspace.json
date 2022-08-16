@@ -5,12 +5,13 @@
     "auth-api": "apps/auth/api",
     "auth-app": "apps/auth/app",
     "core-browser": "libs/core/browser",
-    "core-server": "libs/core/server",
-    "core-shared": "libs/core/shared",
     "core-theme": "apps/core/theme",
     "hommy-api": "apps/hommy/api",
     "hommy-app": "apps/hommy/app",
     "host-api": "apps/host/api",
-    "host-app": "apps/host/app"
+    "host-app": "apps/host/app",
+    "kendu-browser": "libs/kendu/browser",
+    "kendu-common": "libs/kendu/common",
+    "kendu-node": "libs/kendu/node"
   }
 }

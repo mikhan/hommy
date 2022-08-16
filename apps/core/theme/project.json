@@ -78,5 +78,5 @@
       }
     }
   },
-  "tags": ["type:app", "scope:core", "target:browser"]
+  "tags": ["type:app", "scope:shared", "target:browser"]
 }

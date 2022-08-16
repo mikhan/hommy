@@ -17,8 +17,9 @@
     "baseUrl": ".",
     "paths": {
       "@decet/core-browser": ["libs/core/browser/src/index.ts"],
-      "@decet/core-server": ["libs/core/server/src/index.ts"],
-      "@decet/core-shared": ["libs/core/shared/src/index.ts"],
+      "@decet/kendu-browser": ["libs/kendu/browser/src/index.ts"],
+      "@decet/kendu-common": ["libs/kendu/common/src/index.ts"],
+      "@decet/kendu-node": ["libs/kendu/node/src/index.ts"],
       "environment": [".env.ts"]
     }
   },

@@ -1,3 +1,10 @@
-const { getTailwindConfig } = require('../../../tools/tailwind/config.js')
+const { createGlobPatternsForDependencies } = require('@nrwl/angular/tailwind')
+const { join } = require('path')
 
-module.exports = getTailwindConfig(__filename)
+module.exports = {
+  content: [join(__dirname, 'src/**/!(*.stories|*.spec).{ts,html}'), ...createGlobPatternsForDependencies(__dirname)],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}

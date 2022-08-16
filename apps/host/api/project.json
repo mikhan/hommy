@@ -45,5 +45,5 @@
       }
     }
   },
-  "tags": ["type:app", "scope:host", "target:server"]
+  "tags": ["type:app", "scope:isolated", "target:node"]
 }

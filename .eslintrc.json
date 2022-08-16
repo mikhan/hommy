@@ -9,36 +9,40 @@
         "@nrwl/nx/enforce-module-boundaries": [
           "error",
           {
+            "banTransitiveDependencies": true,
             "enforceBuildableLibDependency": true,
             "allow": [],
             "depConstraints": [
               {
                 "sourceTag": "type:app",
-                "onlyDependOnLibsWithTags": ["type:app", "type:lib"]
+                "onlyDependOnLibsWithTags": ["type:lib"]
               },
               {
                 "sourceTag": "type:lib",
                 "onlyDependOnLibsWithTags": ["type:lib"]
               },
               {
+                "sourceTag": "scope:isolated",
+                "onlyDependOnLibsWithTags": ["scope:shared"]
+              },
+              {
+                "sourceTag": "scope:shared",
+                "onlyDependOnLibsWithTags": ["scope:shared"]
+              },
+              {
+                "sourceTag": "target:common",
+                "onlyDependOnLibsWithTags": ["target:common"],
+                "bannedExternalImports": ["@angular*", "@nest*"]
+              },
+              {
                 "sourceTag": "target:browser",
-                "onlyDependOnLibsWithTags": ["target:browser", "target:shared"]
+                "onlyDependOnLibsWithTags": ["target:common", "target:browser"],
+                "bannedExternalImports": ["@nest*"]
               },
               {
-                "sourceTag": "target:server",
-                "onlyDependOnLibsWithTags": ["target:server", "target:shared"]
-              },
-              {
-                "sourceTag": "scope:auth",
-                "onlyDependOnLibsWithTags": ["scope:auth", "scope:common"]
-              },
-              {
-                "sourceTag": "scope:hommy",
-                "onlyDependOnLibsWithTags": ["scope:hommy", "scope:common"]
-              },
-              {
-                "sourceTag": "scope:common",
-                "onlyDependOnLibsWithTags": ["scope:common"]
+                "sourceTag": "target:node",
+                "onlyDependOnLibsWithTags": ["target:common", "target:node"],
+                "bannedExternalImports": ["@angular*"]
               }
             ]
           }
@@ -51,10 +55,7 @@
       "parserOptions": { "project": "./tsconfig.*?.json" },
       "settings": {
         "import/extensions": [".ts", ".d.ts"],
-        "import/external-module-folders": [
-          "node_modules",
-          "node_modules/@types"
-        ],
+        "import/external-module-folders": ["node_modules", "node_modules/@types"],
         "import/parsers": {
           "@typescript-eslint/parser": [".ts", ".d.ts"]
         },
@@ -84,10 +85,7 @@
         "@typescript-eslint/no-unused-vars": ["off"],
         // Static analysis
         "import/no-self-import": ["error"],
-        "import/no-useless-path-segments": [
-          "error",
-          { "noUselessIndex": true }
-        ],
+        "import/no-useless-path-segments": ["error", { "noUselessIndex": true }],
         // Helpful warnings
         "import/export": ["error"],
         "import/no-named-as-default": ["warn"],
@@ -104,17 +102,7 @@
         "import/order": [
           "warn",
           {
-            "groups": [
-              "builtin",
-              "external",
-              "internal",
-              "unknown",
-              "parent",
-              "sibling",
-              "index",
-              "object",
-              "type"
-            ],
+            "groups": ["builtin", "external", "internal", "unknown", "parent", "sibling", "index", "object", "type"],
             "newlines-between": "never",
             "alphabetize": { "order": "asc", "caseInsensitive": true },
             "pathGroups": [

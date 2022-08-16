@@ -1,5 +1,5 @@
 import chroma from 'chroma-js'
-import { getForegroundColor, kebabCase, randomColor } from '@decet/core-shared'
+import { getForegroundColor, kebabCase, randomColor } from '@decet/kendu-common'
 import { Palette } from '../interfaces/palette'
 import { getColorName } from './color-name'
 import { ColorScheme } from './style-dictionary'

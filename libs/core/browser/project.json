@@ -35,5 +35,5 @@
       }
     }
   },
-  "tags": ["type:lib", "scope:core", "target:browser"]
+  "tags": ["type:lib", "scope:shared", "target:browser"]
 }

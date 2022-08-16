@@ -10,7 +10,7 @@ import {
   getColorContrast,
   getColorReadability,
   round,
-} from '@decet/core-shared'
+} from '@decet/kendu-common'
 import { getColorName } from '../../utils/color-name'
 
 const DEFAULT_NAME = 'Monotone'

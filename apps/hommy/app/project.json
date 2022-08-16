@@ -103,5 +103,5 @@
       }
     }
   },
-  "tags": ["type:app", "scope:hommy", "target:browser"]
+  "tags": ["type:app", "scope:shared", "target:browser"]
 }

@@ -87,5 +87,5 @@
       }
     }
   },
-  "tags": ["type:app", "scope:shell", "target:browser"]
+  "tags": ["type:app", "scope:isolated", "target:browser"]
 }

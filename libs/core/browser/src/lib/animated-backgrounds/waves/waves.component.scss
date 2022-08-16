@@ -1,0 +1,44 @@
+:host {
+  min-width: 0;
+  min-height: 0;
+}
+
+svg {
+  width: 100%;
+  height: auto;
+}
+
+#layer1 {
+  stop[offset='0'] {
+    stop-color: var(--layer1-start-color);
+  }
+
+  stop[offset='1'] {
+    stop-color: var(--layer1-end-color);
+  }
+}
+
+#layer2 {
+  stop[offset='0'] {
+    stop-color: var(--layer2-start-color);
+  }
+
+  stop[offset='1'] {
+    stop-color: var(--layer2-end-color);
+  }
+}
+
+#layer3 {
+  stop[offset='0'] {
+    stop-color: var(--layer3-start-color);
+  }
+
+  stop[offset='1'] {
+    stop-color: var(--layer3-end-color);
+  }
+}
+
+animateTransform {
+  dur: var(--duration);
+  repeatcount: var(--repeat-count);
+}

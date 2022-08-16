@@ -62,5 +62,5 @@
       }
     }
   },
-  "tags": ["type:app", "scope:hommy", "target:server"]
+  "tags": ["type:app", "scope:shared", "target:node"]
 }

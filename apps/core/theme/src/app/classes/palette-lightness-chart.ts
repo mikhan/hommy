@@ -9,7 +9,7 @@ import {
   LineElement,
 } from 'chart.js'
 import chroma from 'chroma-js'
-import { round } from '@decet/core-shared'
+import { round } from '@decet/kendu-common'
 
 type ChartInstance = Chart<'line', number[]>
 type ChartInstanceData = ChartData<'line', number[]>

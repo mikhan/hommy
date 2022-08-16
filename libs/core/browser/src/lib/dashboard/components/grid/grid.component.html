@@ -1,0 +1,6 @@
+<!-- <ng-template #templateRef></ng-template> -->
+<ui-grid colSize="8rem 1fr" rowSize="8rem" gap="1rem" adjust="fit">
+  <ui-grid-item *ngFor="let widget of widgets$ | async" [colspan]="widget.cols" [rowspan]="widget.rows">
+    <ng-container *ngComponentOutlet="widget.component"></ng-container>
+  </ui-grid-item>
+</ui-grid>

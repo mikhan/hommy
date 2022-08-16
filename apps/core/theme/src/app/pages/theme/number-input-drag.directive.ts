@@ -15,8 +15,8 @@ import {
   takeUntil,
   tap,
 } from 'rxjs'
-import { InteractionLockService, OverlayLockService, PointerLockService } from '@decet/core-browser'
-import { clamp, round } from '@decet/core-shared'
+import { InteractionLockService, OverlayLockService, PointerLockService } from '@decet/kendu-browser'
+import { clamp, round } from '@decet/kendu-common'
 
 export class ValueDragControl {
   private mouseup$ = fromEvent(window, 'mouseup')
