@@ -1,9 +1,11 @@
+import { Injectable } from '@angular/core'
 import { asyncScheduler, map, Observable, ReplaySubject, shareReplay, throttleTime, firstValueFrom } from 'rxjs'
-import { LocalStorageService } from '@decet/kendu-browser'
 import { Theme } from '../interfaces/style-dictionary'
 import { Config, createTheme, DEFAULT_CONFIG } from '../utils/theme-generator'
+import { ThemeStorageService } from './theme-storage.service'
 
-export class ThemeDataSource {
+@Injectable({ providedIn: 'root' })
+export class ThemeDatasourceService {
   private configSubject = new ReplaySubject<Config>(1)
 
   readonly config$ = this.configSubject.asObservable()
@@ -17,9 +19,7 @@ export class ThemeDataSource {
     shareReplay(1),
   )
 
-  private storage = new LocalStorageService<Config>()
-
-  constructor() {
+  constructor(private storage: ThemeStorageService) {
     this.init()
   }
 
@@ -39,11 +39,11 @@ export class ThemeDataSource {
 
   private async saveConfig(config: Config): Promise<void> {
     console.log('saveConfig', config)
-    await this.storage.set('theme.config', config)
+    await this.storage.set('config', config)
   }
 
   private async recoverConfig(): Promise<Config> {
-    return (await this.storage.get('theme.config')) ?? DEFAULT_CONFIG
+    return (await this.storage.get('config')) ?? DEFAULT_CONFIG
   }
 
   // private getColorConfigTokenHash({ scheme, color }: Config): string {
