@@ -1,7 +1,7 @@
 import { Component, ChangeDetectionStrategy, NgModule } from '@angular/core'
 
 @Component({
-  selector: 'ui-layout',
+  selector: 'kd-layout',
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

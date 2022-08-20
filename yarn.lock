@@ -5855,18 +5855,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"apollo-angular@npm:^3.0.1":
-  version: 3.0.1
-  resolution: "apollo-angular@npm:3.0.1"
+"apollo-angular@npm:^4.0.1":
+  version: 4.0.1
+  resolution: "apollo-angular@npm:4.0.1"
   dependencies:
     tslib: ^2.0.0
   peerDependencies:
-    "@angular/core": ^12.0.0 || ^13.0.0
+    "@angular/core": ^14.0.0
     "@apollo/client": ^3.0.0
-    graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
+    graphql: ^15.0.0 || ^16.0.0
     rxjs: ^6.0.0 || ^7.0.0
     zone.js: ">=0.10.0 <0.12.0"
-  checksum: 2752aae7df964c5f74b9f42e7d0f54c69e21a55702bd3b625626b93d7700de86d3f278cea3d2b6c4fcdad33ee2ce07ffd71c1ed8e15b90be6a119eb5769e27c7
+  checksum: bb7f160647fa7d4e1c351bae91530bfc5ed841578340d3e283fe8d6b8a8738e5180e22f18a4fb54068f0cf41cbef1fb804270969c96182127c76f1446bcf624b
   languageName: node
   linkType: hard
 
@@ -7995,7 +7995,7 @@ __metadata:
     "@types/tailwindcss": ^3.1.0
     "@typescript-eslint/eslint-plugin": ^5.29.0
     "@typescript-eslint/parser": ^5.29.0
-    apollo-angular: ^3.0.1
+    apollo-angular: ^4.0.1
     apollo-server-core: ^3.10.0
     apollo-server-express: ^3.10.0
     autoprefixer: ^10.4.0
@@ -8010,7 +8010,7 @@ __metadata:
     eslint-plugin-import: ^2.26.0
     eslint-plugin-jest: ^26.6.0
     eslint-plugin-unused-imports: ^2.0.0
-    graphql: ^16.5.0
+    graphql: ^16.6.0
     graphql-query-complexity: ^0.11.0
     graphql-scalars: ^1.17.0
     graphql-subscriptions: ^2.0.0
@@ -8018,6 +8018,7 @@ __metadata:
     graphql-upload: ^13.0.0
     graphql-ws: ^5.9.1
     hashids: ^2.2.10
+    idb-keyval: ^6.2.0
     jest: 27.5.1
     jest-preset-angular: ~11.1.2
     keyv: ^4.3.3
@@ -10684,10 +10685,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"graphql@npm:0.13.1 - 16, graphql@npm:^16.5.0":
-  version: 16.5.0
-  resolution: "graphql@npm:16.5.0"
-  checksum: a82a926d085818934d04fdf303a269af170e79de943678bd2726370a96194f9454ade9d6d76c2de69afbd7b9f0b4f8061619baecbbddbe82125860e675ac219e
+"graphql@npm:0.13.1 - 16, graphql@npm:^16.6.0":
+  version: 16.6.0
+  resolution: "graphql@npm:16.6.0"
+  checksum: bf1d9e3c1938ce3c1a81e909bd3ead1ae4707c577f91cff1ca2eca474bfbc7873d5d7b942e1e9777ff5a8304421dba57a4b76d7a29eb19de8711cb70e3c2415e
   languageName: node
   linkType: hard
 
@@ -11094,6 +11095,15 @@ __metadata:
   peerDependencies:
     postcss: ^8.1.0
   checksum: 5c324d283552b1269cfc13a503aaaa172a280f914e5b81544f3803bc6f06a3b585fb79f66f7c771a2c052db7982c18bf92d001e3b47282e3abbbb4c4cc488d68
+  languageName: node
+  linkType: hard
+
+"idb-keyval@npm:^6.2.0":
+  version: 6.2.0
+  resolution: "idb-keyval@npm:6.2.0"
+  dependencies:
+    safari-14-idb-fix: ^3.0.0
+  checksum: ddd58f95829ff734e3e83b29608709cdfba38e5795b1f6261ff1afc582ce48f475d0c827d7cf32aacbc5ea6b13d00c2d4a2f7240afccd5252565abeafbd7b990
   languageName: node
   linkType: hard
 
@@ -16401,21 +16411,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup@npm:^2.56.2":
-  version: 2.77.2
-  resolution: "rollup@npm:2.77.2"
-  dependencies:
-    fsevents: ~2.3.2
-  dependenciesMeta:
-    fsevents:
-      optional: true
-  bin:
-    rollup: dist/bin/rollup
-  checksum: 5a84fb98a6f858906bceba091430442f6c1f362b07c5fa9123b708f87e39f52640e34a189cd9a1776ceae61300055c78ba648205fa03188451539ebeb19797df
-  languageName: node
-  linkType: hard
-
-"rollup@npm:^2.70.0":
+"rollup@npm:^2.56.2, rollup@npm:^2.70.0":
   version: 2.78.0
   resolution: "rollup@npm:2.78.0"
   dependencies:
@@ -16469,6 +16465,13 @@ __metadata:
   dependencies:
     tslib: ^2.1.0
   checksum: fc05f01364a74dac57490fb3e07ea63b422af04017fae1db641a009073f902ef69f285c5daac31359620dc8d9aee7d81e42b370ca2a8573d1feae0b04329383b
+  languageName: node
+  linkType: hard
+
+"safari-14-idb-fix@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "safari-14-idb-fix@npm:3.0.0"
+  checksum: 30d5baf3d9a17b52842b2c3fd3f0001fde7095a36191b6140ac78c19e8e1ff4b2607b9beb3b066c6bec107ccb5399c96e29748a6f5fcd592425f806f5e36f759
   languageName: node
   linkType: hard
 

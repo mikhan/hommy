@@ -13,7 +13,7 @@
           "error",
           {
             "type": "attribute",
-            "prefix": "ui",
+            "prefix": "kd",
             "style": "camelCase"
           }
         ],
@@ -21,7 +21,7 @@
           "error",
           {
             "type": "element",
-            "prefix": "ui",
+            "prefix": "kd",
             "style": "kebab-case"
           }
         ]

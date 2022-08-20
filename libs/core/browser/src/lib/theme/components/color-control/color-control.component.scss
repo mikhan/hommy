@@ -1,0 +1,13 @@
+:host {
+  display: grid;
+  background-color: theme('backgroundColor.neutral.300');
+  border-radius: theme('borderRadius.DEFAULT');
+  padding: theme('padding.1');
+  position: relative;
+  width: theme('width.5');
+  height: theme('height.5');
+
+  &:focus-within {
+    outline: 2px solid currentColor;
+  }
+}

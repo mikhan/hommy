@@ -24,11 +24,7 @@ describe(`DTO testing`, () => {
     expect.assertions(3)
     const data = ClassA.from({
       string: 'string',
-      object: ClassB.from({
-        string: 'string',
-        boolean: true,
-        number: undefined,
-      }),
+      object: ClassB.from({ string: 'string', boolean: true, number: undefined }),
       array: [ClassB.from({ string: 'string', boolean: true, number: undefined })],
     })
 

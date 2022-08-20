@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, ElementRef, Input, NgModule, Render
 import { GridItemController } from '../../classes/grid-item.controller'
 
 @Component({
-  selector: 'ui-grid-item',
+  selector: 'kd-grid-item',
   templateUrl: './grid-item.component.html',
   styleUrls: ['./grid-item.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

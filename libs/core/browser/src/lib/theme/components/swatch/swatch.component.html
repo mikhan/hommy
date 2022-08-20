@@ -1,0 +1,63 @@
+<div class="__surface" [style.--background]="info.background" [style.--foreground]="info.foreground" tabindex="0">
+  <div class="flex items-center mb-2 h-8 flex-none">
+    <div class="__name flex-grow">{{ name }}</div>
+    <div class="__if-collapsed flex gap-1 items-center">
+      <span class="text-xs" *ngIf="showValues">{{ info.contrast }}</span>
+      <fa-icon size="xs" [icon]="isReadable ? icons.valid : icons.invalid" *ngIf="isReadable || showValues"></fa-icon>
+    </div>
+  </div>
+  <!-- Content -->
+  <dl class="text-xs flex flex-col justify-between grow">
+    <div [class.__if-expanded]="!showValues">
+      <div class="flex justify-between">
+        <dt class="opacity-50">HSL</dt>
+        <dd class="grow flex justify-end select-text">
+          <span class="flex-1 max-w-[3ch] text-right">{{ hsl.h }}</span>
+          <span class="opacity-50">,</span>
+          <span class="flex-1 max-w-[3ch] text-right">{{ hsl.s }}</span>
+          <span class="opacity-50">,</span>
+          <span class="flex-1 max-w-[3ch] text-right">{{ hsl.l }}</span>
+        </dd>
+      </div>
+    </div>
+    <div class="__if-expanded">
+      <div class="flex justify-between">
+        <dt>Background</dt>
+        <dd class="select-text">{{ info.background }}</dd>
+      </div>
+      <div class="flex justify-between">
+        <dt>Text</dt>
+        <dd class="select-text">{{ info.foreground }}</dd>
+      </div>
+      <div class="flex justify-between" [style.color]="info.caption">
+        <dt>Caption</dt>
+        <dd class="select-text">{{ info.caption }}</dd>
+      </div>
+    </div>
+    <div class="__if-expanded">
+      <div class="flex justify-between">
+        <dt>Contrast</dt>
+        <dd class="select-text">{{ info.contrast }}</dd>
+      </div>
+      <div class="flex items-baseline justify-between" *ngFor="let size of sizes">
+        <dt>{{ readability[size].name }}</dt>
+        <dd class="flex gap-2">
+          <span
+            class="flex gap-1"
+            *ngFor="let level of levels"
+            title="Contrast {{ info.readability[level][size].contrast | number: '1.0-2' }}, Required {{
+              info.readability[level][size].required | number: '1.0-2'
+            }}"
+          >
+            <span>{{ level }}</span>
+            <fa-icon
+              size="xs"
+              [fixedWidth]="true"
+              [icon]="info.readability[level][size].readable ? icons.valid : icons.invalid"
+            ></fa-icon>
+          </span>
+        </dd>
+      </div>
+    </div>
+  </dl>
+</div>

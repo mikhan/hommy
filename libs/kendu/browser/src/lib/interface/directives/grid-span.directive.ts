@@ -1,11 +1,11 @@
 import { Directive, NgModule } from '@angular/core'
 
 @Directive({
-  selector: '[uiGridSpan]',
+  selector: '[kdGridSpan]',
 })
-export class UiGridSpanDirective {
+export class GridSpanDirective {
   // @Input()
-  // public set uiGridSpan(properties: Record<string, string>) {
+  // public set kdGridSpan(properties: Record<string, string>) {
   // this.elementOrRef.nativeElement.style.setProperty('--span', value)
   // }
   // private cssProperties = new CSSProperties(this.elementOrRef)
@@ -14,7 +14,7 @@ export class UiGridSpanDirective {
 
 @NgModule({
   imports: [],
-  declarations: [UiGridSpanDirective],
-  exports: [UiGridSpanDirective],
+  declarations: [GridSpanDirective],
+  exports: [GridSpanDirective],
 })
 export class GridSpanDirectiveModule {}

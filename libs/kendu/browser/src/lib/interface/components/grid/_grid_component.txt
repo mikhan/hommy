@@ -4,7 +4,7 @@ import { CSSProperties } from '../../directives/css-properties.directive'
 import { ResizeObserveService } from '../../services/resize-observe.service'
 
 @Component({
-  selector: 'ui-grid',
+  selector: 'kd-grid',
   templateUrl: './grid.component.html',
   styleUrls: ['./grid.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -148,8 +148,8 @@ export class GridComponentModule {}
 
 :host {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(var(--ui-grid-column-size), 1fr));
-  gap: var(--ui-grid-column-gap);
+  grid-template-columns: repeat(auto-fill, minmax(var(--kd-grid-column-size), 1fr));
+  gap: var(--kd-grid-column-gap);
   // grid-template-columns: repeat(
   //   var(--fill-column, $fillColumn),
   //   minmax(var(--col-min-width, $colMinWidth), var(--col-max-width, $colMaxWidth))

@@ -18,7 +18,7 @@ import { CSSCustomPropertiesService } from '../../services/css-custom-properties
 import { ResizeObserveService } from '../../services/resize-observe.service'
 
 @Component({
-  selector: 'ui-grid',
+  selector: 'kd-grid',
   templateUrl: './grid.component.html',
   styleUrls: ['./grid.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

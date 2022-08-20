@@ -1,0 +1,45 @@
+<label class="control">
+  <div class="label">H</div>
+  <input
+    class="input"
+    type="number"
+    min="-180"
+    max="180"
+    step="1"
+    required
+    coreThemeDrag
+    [ngModel]="h"
+    (ngModelChange)="h = $event; notify()"
+  />
+</label>
+<label class="control">
+  <div class="label">S</div>
+  <input
+    class="input"
+    type="number"
+    min="-100"
+    max="100"
+    step="1"
+    required
+    coreThemeDrag
+    [ngModel]="s"
+    (ngModelChange)="s = $event; notify()"
+  />
+</label>
+<label class="control">
+  <div class="label">L</div>
+  <input
+    class="input"
+    type="number"
+    min="-100"
+    max="100"
+    step="1"
+    required
+    coreThemeDrag
+    [ngModel]="l"
+    (ngModelChange)="l = $event; notify()"
+  />
+</label>
+<button class="button" type="button" (click)="reset()">
+  <fa-icon [icon]="icons.close"></fa-icon><span class="sr-only">Close</span>
+</button>

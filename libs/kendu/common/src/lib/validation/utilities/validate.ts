@@ -1,9 +1,9 @@
 import { ClassTransformOptions } from 'class-transformer'
 import { ValidationError, validateSync, ValidatorOptions } from 'class-validator'
-import { Type } from '../../common/interfaces/type'
-import { ValidationException } from '../types/validation-exception'
-import { assertIsObject } from './assertions'
-import { isUndefined } from './predicate'
+import { Constructor } from '../../common/interfaces/constructor'
+import { assertIsObject } from '../../common/utilities/assertions'
+import { isUndefined } from '../../common/utilities/predicate'
+import { ValidationException } from '../interfaces/validation-exception'
 import { instanceFromObject, instanceToObject } from './transform'
 
 const defaultValidatorOptions: ValidatorOptions = {
@@ -26,10 +26,7 @@ export function validateInstance<I extends any | any[]>(instance: I, options?: V
 
 export function validateOneInstance<I>(instance: I, options?: ValidateInstanceObject): I {
   assertIsObject<object>(instance)
-  const errors = validateSync(instance, {
-    ...defaultValidatorOptions,
-    ...options,
-  })
+  const errors = validateSync(instance, { ...defaultValidatorOptions, ...options })
 
   if (errors.length) {
     const errorInstances = flattenErrors(errors, (e) => e)
@@ -44,7 +41,7 @@ export type ValidateObjectOptions = ClassTransformOptions & ValidatorOptions
 
 export function validateObject<V extends object | object[]>(
   object: V,
-  constructor: Type<any>,
+  constructor: Constructor<any>,
   options?: ValidateObjectOptions,
 ): V {
   return instanceToObject(validateInstance(instanceFromObject(constructor, object, options), options), options) as V

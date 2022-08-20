@@ -14,3 +14,36 @@
 {"context":"GraphQLModule","level":"info","message":"Mapped {/hommy/graphql, POST} route","timestamp":"2022-08-13T21:25:15.918Z"}
 {"context":"NestApplication","level":"info","message":"Nest application successfully started","timestamp":"2022-08-13T21:25:15.983Z"}
 {"context":"Core","level":"info","message":"🚀 Application is up on: http://0.0.0.0:3001/hommy/api","timestamp":"2022-08-13T21:25:15.986Z"}
+{"context":"NestFactory","level":"info","message":"Starting Nest application...","timestamp":"2022-08-20T09:56:55.795Z"}
+{"context":"InstanceLoader","level":"info","message":"DatabaseModule dependencies initialized","timestamp":"2022-08-20T09:56:55.884Z"}
+{"context":"InstanceLoader","level":"info","message":"CoreModule dependencies initialized","timestamp":"2022-08-20T09:56:55.885Z"}
+{"context":"InstanceLoader","level":"info","message":"AppModule dependencies initialized","timestamp":"2022-08-20T09:56:55.886Z"}
+{"context":"InstanceLoader","level":"info","message":"CoreModule dependencies initialized","timestamp":"2022-08-20T09:56:55.887Z"}
+{"context":"InstanceLoader","level":"info","message":"HommyModule dependencies initialized","timestamp":"2022-08-20T09:56:55.888Z"}
+{"context":"InstanceLoader","level":"info","message":"SessionModule dependencies initialized","timestamp":"2022-08-20T09:56:55.889Z"}
+{"context":"InstanceLoader","level":"info","message":"GraphQLSchemaBuilderModule dependencies initialized","timestamp":"2022-08-20T09:56:55.891Z"}
+{"context":"InstanceLoader","level":"info","message":"GraphQLModule dependencies initialized","timestamp":"2022-08-20T09:56:55.893Z"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/hommy/api}:","timestamp":"2022-08-20T09:56:55.904Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/hommy/api, GET} route","timestamp":"2022-08-20T09:56:55.907Z"}
+{"context":"RoutesResolver","level":"info","message":"SessionController {/hommy/api/session}:","timestamp":"2022-08-20T09:56:55.908Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/hommy/api/session, GET} route","timestamp":"2022-08-20T09:56:55.909Z"}
+{"context":"GraphQLModule","level":"info","message":"Mapped {/hommy/graphql, POST} route","timestamp":"2022-08-20T09:56:56.088Z"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started","timestamp":"2022-08-20T09:56:56.219Z"}
+{"context":"Core","level":"info","message":"🚀 Application is up on: http://0.0.0.0:3001/hommy/api","timestamp":"2022-08-20T09:56:56.222Z"}
+{"context":"GraphQL","level":"info","message":"query GetNeighbor(id: \"1\") (244)ms","timestamp":"2022-08-20T09:59:35.571Z"}
+{"context":"NestFactory","level":"info","message":"Starting Nest application...","timestamp":"2022-08-20T10:17:45.730Z"}
+{"context":"InstanceLoader","level":"info","message":"DatabaseModule dependencies initialized","timestamp":"2022-08-20T10:17:45.783Z"}
+{"context":"InstanceLoader","level":"info","message":"CoreModule dependencies initialized","timestamp":"2022-08-20T10:17:45.784Z"}
+{"context":"InstanceLoader","level":"info","message":"AppModule dependencies initialized","timestamp":"2022-08-20T10:17:45.785Z"}
+{"context":"InstanceLoader","level":"info","message":"CoreModule dependencies initialized","timestamp":"2022-08-20T10:17:45.787Z"}
+{"context":"InstanceLoader","level":"info","message":"HommyModule dependencies initialized","timestamp":"2022-08-20T10:17:45.787Z"}
+{"context":"InstanceLoader","level":"info","message":"SessionModule dependencies initialized","timestamp":"2022-08-20T10:17:45.789Z"}
+{"context":"InstanceLoader","level":"info","message":"GraphQLSchemaBuilderModule dependencies initialized","timestamp":"2022-08-20T10:17:45.790Z"}
+{"context":"InstanceLoader","level":"info","message":"GraphQLModule dependencies initialized","timestamp":"2022-08-20T10:17:45.792Z"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/hommy/api}:","timestamp":"2022-08-20T10:17:45.803Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/hommy/api, GET} route","timestamp":"2022-08-20T10:17:45.806Z"}
+{"context":"RoutesResolver","level":"info","message":"SessionController {/hommy/api/session}:","timestamp":"2022-08-20T10:17:45.807Z"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/hommy/api/session, GET} route","timestamp":"2022-08-20T10:17:45.809Z"}
+{"context":"GraphQLModule","level":"info","message":"Mapped {/hommy/graphql, POST} route","timestamp":"2022-08-20T10:17:45.938Z"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started","timestamp":"2022-08-20T10:17:45.969Z"}
+{"context":"Core","level":"info","message":"🚀 Application is up on: http://0.0.0.0:3001/hommy/api","timestamp":"2022-08-20T10:17:45.973Z"}

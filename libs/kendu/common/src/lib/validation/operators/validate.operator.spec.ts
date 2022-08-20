@@ -3,7 +3,7 @@ import { IsDate, IsInstance, IsNotEmpty, IsNumber, IsString, ValidateNested } fr
 import { lastValueFrom, Observable, of } from 'rxjs'
 import { ObjectType } from '../../common/interfaces/object-type'
 import { DTO } from '../classes/dto'
-import { ValidationException } from '../types/validation-exception'
+import { ValidationException } from '../interfaces/validation-exception'
 import { instanceFromObject } from '../utilities/transform'
 import { validate } from './validate.operator'
 

@@ -1,3 +1,6 @@
+/**
+ * @type {import('@nrwl/angular/src/utils/mf/with-module-federation').MFConfig}
+ */
 module.exports = {
   name: 'hommy-app',
   exposes: {

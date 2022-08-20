@@ -1,51 +1,56 @@
-import { arraySequence, numberGenerator } from './random'
+import { randomInteger, randomItem, randomNumber } from './random'
 
-describe('rangeSequence generator', () => {
-  it('should create generator', () => {
+const SEED = 2
+
+describe('randomInteger generator', () => {
+  it('should generate pseudo random numbers', () => {
     expect.hasAssertions()
 
-    const generator = numberGenerator(5, 9)
+    const generator = randomNumber(-1, 1, 2, SEED)
 
-    expect(generator.next().value).toBe(5)
-    expect(generator.next().value).toBe(6)
-    expect(generator.next(8).value).toBe(8)
-    expect(generator.next().value).toBe(9)
-    expect(generator.next(4).value).toBe(9)
-    expect(generator.next(5).value).toBe(5)
-    expect(generator.next().value).toBe(6)
-    expect(generator.next(10).value).toBe(5)
-    expect(generator.next().value).toBe(6)
-    expect(generator.next(11).value).toBe(6)
-    expect(generator.next().value).toBe(7)
-    expect(generator.next().value).toBe(8)
-    expect(generator.next().value).toBe(9)
-    expect(generator.next().value).toBe(5)
-    expect(generator.next().value).toBe(6)
-    expect(generator.next().value).toBe(7)
+    expect(generator.next().value).toBe(-0.94)
+    expect(generator.next().value).toBe(0.39)
+    expect(generator.next().value).toBe(-0.38)
+    expect(generator.next().value).toBe(0.76)
+    expect(generator.next().value).toBe(-0.01)
+    expect(generator.next().value).toBe(0.17)
+    expect(generator.next().value).toBe(0.97)
+    expect(generator.next().value).toBe(-0.42)
+    expect(generator.next().value).toBe(-0.73)
+    expect(generator.next().value).toBe(0.51)
   })
-})
 
-describe('arraySequence generator', () => {
-  it('should create generator', () => {
+  it('should generate pseudo random integers', () => {
     expect.hasAssertions()
 
-    const generator = arraySequence(['5A', '6A', '7A', '8A', '9A'])
+    const generator = randomInteger(-10, 10, SEED)
 
-    expect(generator.next().value).toBe('5A')
-    expect(generator.next().value).toBe('6A')
-    expect(generator.next(8).value).toBe('8A')
-    expect(generator.next().value).toBe('9A')
-    expect(generator.next(4).value).toBe('9A')
-    expect(generator.next(5).value).toBe('5A')
-    expect(generator.next().value).toBe('6A')
-    expect(generator.next(10).value).toBe('5A')
-    expect(generator.next().value).toBe('6A')
-    expect(generator.next(11).value).toBe('6A')
-    expect(generator.next().value).toBe('7A')
-    expect(generator.next().value).toBe('8A')
-    expect(generator.next().value).toBe('9A')
-    expect(generator.next().value).toBe('5A')
-    expect(generator.next().value).toBe('6A')
-    expect(generator.next().value).toBe('7A')
+    expect(generator.next().value).toBe(-9)
+    expect(generator.next().value).toBe(4)
+    expect(generator.next().value).toBe(-4)
+    expect(generator.next().value).toBe(8)
+    expect(generator.next().value).toBe(-0)
+    expect(generator.next().value).toBe(2)
+    expect(generator.next().value).toBe(10)
+    expect(generator.next().value).toBe(-4)
+    expect(generator.next().value).toBe(-7)
+    expect(generator.next().value).toBe(5)
+  })
+
+  it('should generate pseudo random item', () => {
+    expect.hasAssertions()
+
+    const generator = randomItem('ABCDEFGHIJ'.split(''), SEED)
+
+    expect(generator.next().value).toBe('A')
+    expect(generator.next().value).toBe('G')
+    expect(generator.next().value).toBe('D')
+    expect(generator.next().value).toBe('I')
+    expect(generator.next().value).toBe('E')
+    expect(generator.next().value).toBe('F')
+    expect(generator.next().value).toBe('J')
+    expect(generator.next().value).toBe('D')
+    expect(generator.next().value).toBe('B')
+    expect(generator.next().value).toBe('H')
   })
 })

@@ -1,7 +1,7 @@
 import { Component, ChangeDetectionStrategy, NgModule } from '@angular/core'
 
 @Component({
-  selector: 'ui-topbar',
+  selector: 'kd-topbar',
   templateUrl: './topbar.component.html',
   styleUrls: ['./topbar.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

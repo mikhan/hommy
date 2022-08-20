@@ -1,7 +1,7 @@
 import { Component, ChangeDetectionStrategy, NgModule } from '@angular/core'
 
 @Component({
-  selector: 'ui-item-list',
+  selector: 'kd-item-list',
   templateUrl: './item-list.component.html',
   styleUrls: ['./item-list.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

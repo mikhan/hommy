@@ -1,12 +1,12 @@
-import { isObject } from '../../validation/utilities/predicate'
+import { isObject } from './predicate'
+
+type GetValueSelector = (object: Record<string, unknown>, key: string) => unknown
 
 export function getValue<T>(
   object: unknown,
   path: string | string[],
-  selector?: (object: Record<string, unknown>, key: string) => unknown,
+  selector: GetValueSelector = (object, key) => object[key],
 ): T | undefined {
-  selector ??= (object, key) => object[key]
-
   const segments = Array.isArray(path) ? path : path.split('.')
 
   for (const key of segments) {

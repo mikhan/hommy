@@ -2,7 +2,7 @@ import { Type } from 'class-transformer'
 import { IsNumber, IsString, IsNotEmpty, ValidateNested, IsInstance, IsDate } from 'class-validator'
 import { ObjectType } from '../../common/interfaces/object-type'
 import { DTO } from '../classes/dto'
-import { ValidationException } from '../types/validation-exception'
+import { ValidationException } from '../interfaces/validation-exception'
 import { instanceFromObject } from './transform'
 import { validateInstance, validateObject } from './validate'
 

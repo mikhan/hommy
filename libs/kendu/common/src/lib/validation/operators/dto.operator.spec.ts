@@ -2,7 +2,7 @@ import { Type } from 'class-transformer'
 import { IsDate, IsInstance, IsNotEmpty, IsNumber, IsString, ValidateNested } from 'class-validator'
 import { lastValueFrom, Observable, of } from 'rxjs'
 import { DTO } from '../classes/dto'
-import { ValidationException } from '../types/validation-exception'
+import { ValidationException } from '../interfaces/validation-exception'
 import { dto } from './dto.operator'
 
 class User extends DTO {

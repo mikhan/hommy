@@ -1,16 +1,15 @@
 import { NgModule } from '@angular/core'
 import { Route, RouterModule } from '@angular/router'
-import { ThemePage } from './pages/theme/theme.page'
 
 export const routes: Route[] = [
   {
     path: '',
-    component: ThemePage,
+    loadChildren: () => import('@decet/core-browser').then((m) => m.ThemeModule),
   },
 ]
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { initialNavigation: 'enabledBlocking' }), ThemePage],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

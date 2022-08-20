@@ -48,18 +48,8 @@ function createDTO(): ClassA {
     string: 'string',
     boolean: true,
     number: undefined,
-    object: instanceFromObject(ClassB, {
-      string: 'string',
-      boolean: true,
-      number: undefined,
-    }),
-    array: [
-      instanceFromObject(ClassB, {
-        string: 'string',
-        boolean: true,
-        number: undefined,
-      }),
-    ],
+    object: instanceFromObject(ClassB, { string: 'string', boolean: true, number: undefined }),
+    array: [instanceFromObject(ClassB, { string: 'string', boolean: true, number: undefined })],
   })
 }
 

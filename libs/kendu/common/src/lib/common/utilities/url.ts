@@ -40,7 +40,12 @@ export function parseURL(url: string | URL, base?: string | URL): PathSections |
 }
 
 export function filterBySearchParams<T>(data: T[], searchParams: URLSearchParams): T[] {
-  const entries: [keyof T, string][] = Array.from((searchParams as any).entries())
+  const obj: Record<string, string[]> = {}
+  searchParams.forEach((value, key) => {
+    const values = obj[key] ?? []
+    values.push(value)
+    obj[key] = values
+  })
 
-  return filterByEntries(data, entries)
+  return filterByEntries(data, obj)
 }

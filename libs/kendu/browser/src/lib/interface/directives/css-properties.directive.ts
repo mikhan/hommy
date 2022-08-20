@@ -2,11 +2,11 @@ import { Directive, Input, ElementRef, NgModule } from '@angular/core'
 import { CSSCustomPropertiesService } from '../services/css-custom-properties.service'
 
 @Directive({
-  selector: '[uiCSSProps]',
+  selector: '[kdCSSProps]',
 })
-export class UiCSSPropsDirective {
+export class CSSPropsDirective {
   @Input()
-  public set uiCSSProps(properties: Record<string, string>) {
+  public set kdCSSProps(properties: Record<string, string>) {
     this.cssProperties.set(properties)
   }
 
@@ -17,7 +17,7 @@ export class UiCSSPropsDirective {
 
 @NgModule({
   imports: [],
-  declarations: [UiCSSPropsDirective],
-  exports: [UiCSSPropsDirective],
+  declarations: [CSSPropsDirective],
+  exports: [CSSPropsDirective],
 })
 export class CSSPropsDirectiveModule {}

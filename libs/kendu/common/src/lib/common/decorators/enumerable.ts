@@ -1,8 +1,7 @@
-import { PropertyDecorator } from '../interfaces/property-decorator'
-import { setDescriptor } from './define'
+import { setDescriptor } from './decorate'
 
-export function Enumerable(enumerable = true): PropertyDecorator {
-  return function (target, propertyKey) {
+export function Enumerable(enumerable = true) {
+  return function (target: Object, propertyKey: string | symbol) {
     setDescriptor(target.constructor, propertyKey, { enumerable })
   }
 }

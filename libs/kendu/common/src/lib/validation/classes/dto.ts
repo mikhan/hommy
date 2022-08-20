@@ -1,13 +1,16 @@
 import 'reflect-metadata'
 import { isObservable, map, Observable } from 'rxjs'
-import { OneOrMany } from '../../common/interfaces/one-or-many'
-import { Type } from '../../common/interfaces/type'
+import { Constructor } from '../../common/interfaces/constructor'
+import { OneOrMany } from '../../common/interfaces/utilities'
 import { instanceFromObject } from '../utilities/transform'
 import { validateInstance } from '../utilities/validate'
 
 export type DTOConstructor<T extends DTO> = typeof DTO & { new (): T }
 
-function createDTOInstance<T extends object, I extends object[] | object>(dto: Type<T>, object: I): OneOrMany<I, T> {
+function createDTOInstance<T extends object, I extends object[] | object>(
+  dto: Constructor<T>,
+  object: I,
+): OneOrMany<I, T> {
   const instance = instanceFromObject(dto, object)
   validateInstance(instance)
 
@@ -15,13 +18,13 @@ function createDTOInstance<T extends object, I extends object[] | object>(dto: T
 }
 
 function createObservableDTOInstance<T extends object, I extends object | object[]>(
-  dto: Type<T>,
+  dto: Constructor<T>,
   observable: Observable<I>,
 ): Observable<OneOrMany<I, T>> {
   return observable.pipe(map((object) => createDTOInstance(dto, object)))
 }
 
-export function asDTO<TBase extends Type<{}>>(Constructor: TBase) {
+export function asDTO<TBase extends Constructor<{}>>(Constructor: TBase) {
   type V = InstanceType<TBase>
   return class DTO {
     static from<I extends object[] | object>(object: Observable<I>): Observable<OneOrMany<I, V>>

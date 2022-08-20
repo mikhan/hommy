@@ -1,0 +1,58 @@
+<div class="flex flex-col gap-2 bg-neutral-200 rounded p-2 group" tabindex="-1">
+  <div class="flex items-center gap-2">
+    <input
+      class="px-1 py-0 -ml-1 rounded grow text-base bg-transparent outline outline-current outline-0 outline-offset-2 focus:outline-2 hocus:bg-neutral-100 transition-colors"
+      type="text"
+      [(ngModel)]="label"
+    />
+    <div
+      class="ml-auto flex gap-4 text-sm group-hover:visible group-focus-within:visible"
+      [class.invisible]="!showControls"
+    >
+      <div class="flex gap-4" *ngIf="showControls && !bezier">
+        <label class="flex gap-2 items-center">
+          <div class="text-xs">Mode</div>
+          <select
+            class="bg-neutral-300 h-5 px-1 rounded outline outline-current outline-0 focus:outline-2"
+            [(ngModel)]="mode"
+          >
+            <option *ngFor="let mode of colorModes" [value]="mode">{{ mode | uppercase }}</option>
+          </select>
+        </label>
+        <label class="flex gap-2 items-center">
+          <input type="checkbox" [(ngModel)]="correctLightness" />
+          <div class="text-xs">Correct lightness</div>
+        </label>
+      </div>
+      <div class="flex gap-4" *ngIf="showControls">
+        <label class="flex gap-2 items-center">
+          <input type="checkbox" [(ngModel)]="bezier" />
+          <div class="text-xs">Bezier</div>
+        </label>
+      </div>
+      <label class="flex gap-2 items-center">
+        <input type="checkbox" [(ngModel)]="showControls" />
+        <div class="text-xs">Show controls</div>
+      </label>
+    </div>
+  </div>
+
+  <div class="flex">
+    <core-theme-swatch
+      *ngFor="let shade of palette.shades; trackBy: getShadeIndexKey"
+      [name]="shade.name"
+      [background]="shade.background"
+      [foreground]="shade.foreground"
+      [showValues]="showControls"
+    ></core-theme-swatch>
+  </div>
+
+  <ng-container *ngIf="showControls">
+    <div class="flex justify-between">
+      <core-theme-hsl-control [(value)]="min"></core-theme-hsl-control>
+      <core-theme-color-control class="grow max-w-[6rem]" [(value)]="base"></core-theme-color-control>
+      <core-theme-hsl-control [(value)]="max"></core-theme-hsl-control>
+    </div>
+    <core-theme-palette-chart *ngIf="showControls" [colors]="palette.shades"></core-theme-palette-chart>
+  </ng-container>
+</div>
